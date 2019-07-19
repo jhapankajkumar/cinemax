@@ -1,4 +1,5 @@
 import 'package:cinemax/data/movie/movie_detail.dart';
+import 'package:cinemax/screens/movie_list_by_genre.dart';
 import 'package:flutter/material.dart';
 
 class MovieDetailDiscription extends StatelessWidget {
@@ -14,7 +15,7 @@ class MovieDetailDiscription extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           getGenereView(context),
-          SizedBox(height: 40,),
+          SizedBox(height: 20,),
           getPlotView(context),
         ],
       ),
@@ -31,15 +32,25 @@ class MovieDetailDiscription extends StatelessWidget {
         SizedBox(height: 5,),
         Divider(height: 3, color: Colors.grey,),
         SizedBox(height: 10,),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
+        Wrap(
+          direction: Axis.horizontal,
+          // mainAxisAlignment: MainAxisAlignment.start,
           children: detail.genres.map((genre) {
-          return Container(
-            margin: EdgeInsets.only(right: 10),
-            padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-          decoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(10),color: Colors.deepOrangeAccent),
-          child: Text(genre.name, style: TextStyle(color: Colors.black),),
-        );
+          return GestureDetector(
+            onTap: (){
+              print(genre.name);
+              print(genre.id);
+              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
+                return GenreMovieListScreen(genre: genre,);
+              }));
+            },
+                      child: Container(
+              margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+              padding: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            decoration: BoxDecoration(shape: BoxShape.rectangle, borderRadius: BorderRadius.circular(10),color: Colors.deepOrangeAccent),
+            child: Text(genre.name, style: TextStyle(color: Colors.black),),
+        ),
+          );
           }).toList(),
         )
       ],

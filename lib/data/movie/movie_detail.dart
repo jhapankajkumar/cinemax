@@ -5,6 +5,7 @@
 import 'dart:convert';
 
 import 'package:cinemax/data/genres.dart';
+import 'package:cinemax/data/image/images.dart';
 import 'package:cinemax/data/video/videos.dart';
 
 class MovieDetail {
@@ -30,7 +31,7 @@ class MovieDetail {
     bool video;
     double voteAverage;
     int voteCount;
-    Videos videos;
+    Images images;
 
     MovieDetail({
         this.adult,
@@ -55,7 +56,7 @@ class MovieDetail {
         this.video,
         this.voteAverage,
         this.voteCount,
-        this.videos,
+        this.images,
         
     });
 
@@ -86,7 +87,7 @@ class MovieDetail {
         video: json["video"] == null ? null : json["video"],
         voteAverage: json["vote_average"] == null ? null : json["vote_average"].toDouble(),
         voteCount: json["vote_count"] == null ? null : json["vote_count"],
-        videos: json["videos"] == null ? null : Videos.fromMap(json["videos"]),
+        images: json["images"] == null ? null : Images.fromMap(json["images"]),
     );
 
     Map<String, dynamic> toMap() => {
@@ -112,7 +113,7 @@ class MovieDetail {
         "video": video == null ? null : video,
         "vote_average": voteAverage == null ? null : voteAverage,
         "vote_count": voteCount == null ? null : voteCount,
-        "videos": videos == null ? null : videos.toMap(),
+        "images": images == null ? null : images.toMap(),
     };
 }
 

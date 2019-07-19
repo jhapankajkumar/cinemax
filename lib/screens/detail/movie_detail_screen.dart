@@ -1,12 +1,19 @@
+import 'package:cinemax/data/image/images.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movie_detail.dart';
 import 'package:cinemax/data/movie/movies.dart';
-import 'package:cinemax/screens/detail/movie_cast_list_screen.dart';
+import 'package:cinemax/data/movie/reviews.dart';
+import 'package:cinemax/data/video/video.dart';
+import 'package:cinemax/data/video/videos.dart';
+import 'package:cinemax/screens/cast_and_crew/cast_and_crew_screen.dart';
 import 'package:cinemax/screens/detail/movie_detail_description.dart';
+import 'package:cinemax/screens/detail/movie_revies.dart';
 import 'package:cinemax/screens/detail/movie_trailer_list.dart';
 import 'package:cinemax/screens/detail/similar_movie_list.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/url_constant.dart';
+import 'package:cinemax/util/utility_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MovieDetailScreen extends StatefulWidget {
@@ -23,8 +30,12 @@ class MovieDetailScreen extends StatefulWidget {
 class MovieDetailScreenState extends State<MovieDetailScreen>
     with SingleTickerProviderStateMixin {
   MovieDetail detail;
+  List<Video> videoList;
   TabController _controller;
   List<Movie> relatedMovies;
+  List<Review> reviews;
+  PageController pageController;
+  int currentPage;
 
   _getMovieDetail(int movieId) async {
     var data = await MovieServices().getMovieDetail(movieId);
@@ -42,12 +53,31 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     });
   }
 
+  _getVideoList(int movieId) async {
+    var data = await MovieServices().getVideoList(movieId);
+    var list = Videos.fromJson(data);
+    setState(() {
+      videoList = list.results;
+    });
+  }
+  
+  _getMovieReview(int movieId, page) async {
+    var data = await MovieServices().getMovieReviews(movieId,page);
+    var list = Reviews.fromJson(data);
+    setState(() {
+      reviews = list.results;
+    });
+  }
+
   @override
   void initState() {
     _controller = TabController(length: 4, vsync: this);
+    pageController = PageController();
     if (widget.movie != null) {
       _getMovieDetail(widget.movie.id);
       _getRelatedMovies(widget.movie.id);
+      _getVideoList(widget.movie.id);
+      _getMovieReview(widget.movie.id, 1);
     }
     super.initState();
   }
@@ -55,9 +85,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
   Widget similarMovieListComponents() {
     Widget similarComponent;
     if (relatedMovies == null) {
-      similarComponent = Center(
-        child: CircularProgressIndicator(),
-      );
+      similarComponent = loadingIndicator();
     } else if (relatedMovies != null && relatedMovies.length == 0) {
       similarComponent = Center(
         child: Text("No Related movies found"),
@@ -73,17 +101,13 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
   Widget getMoviesTrailerWidget() {
     Widget components;
     if (relatedMovies == null || detail == null) {
-      components = Center(
-        child: CircularProgressIndicator(),
-      );
-    } else if (detail != null &&
-        detail.videos != null &&
-        detail.videos.results.length == 0) {
+      components = loadingIndicator();
+    } else if (videoList != null && videoList.length == 0) {
       components = Center(
         child: Text("No Videos available"),
       );
     } else {
-      components = MovieTrailerList(detail.videos.results);
+      components = MovieTrailerList(videoList);
     }
     return components;
   }
@@ -93,85 +117,132 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.movie.title),
+        actions: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(right: 8),
+            child: IconButton(
+                icon: Icon(Icons.cast),
+                iconSize: 30,
+                onPressed: (){
+                  if (widget.movie.id != null) {
+                    Navigator.push(context, MaterialPageRoute(builder: (context){
+                    return CastCrewList(movieId: widget.movie.id,);
+                  }));
+                  }
+                  
+                  print('Cast And Crew');
+                },
+              ),
+          ),
+        ],
       ),
       body: Container(
         child: detail == null
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
-            : Column(
-                children: <Widget>[
-                  Stack(children: <Widget>[
-                    Container(
-                      height: 250,
-                      child: FadeInImage.assetNetwork(
-                          image:
-                              '${kPosterImageBaseUrl}w500/${detail.backdropPath ?? detail.posterPath}',
-                          placeholder: 'assets/images/loading.gif',
-                          fit: BoxFit.cover),
-                    ),
-                    Positioned(
-                      left: 0,
-                      bottom: 0,
-                      height: 80,
-                      width: MediaQuery.of(context).size.width,
-                      child: Container(
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
-                                colors: [
-                              Colors.black,
-                              Colors.black38.withOpacity(0.1)
-                            ])),
-                      ),
-                    ),
-                    Positioned(
-                      left: 10,
-                      bottom: 50,
-                      right: 10,
-                      child: Row(
-                        mainAxisSize: MainAxisSize.max,
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Flexible(
-                            child: Text(
-                              detail.title,
-                              style: TextStyle(
-                                fontWeight: FontWeight.normal,
-                                fontSize: 20.0,
-                                color: Colors.white,
-                              ),
-                              // maxLines: 3,
-                              // textAlign: TextAlign.left,
-                            ),
-                          ),
-                        ],
-                      ),
-                    )
-                  ]),
-                  TabBar(controller: _controller, tabs: <Tab>[
-                    Tab(text: "Detail",icon: Icon(Icons.description,color: Colors.white,),),
-                    Tab(text: "Related",icon: Icon(Icons.more,color: Colors.white,)),
-                    Tab(text: "Trailers" ,icon: Icon(Icons.video_library,color: Colors.white,)),
-                    Tab(text: "Cast",icon: Icon(Icons.cast,color: Colors.white,)),
-                  ]),
-                  Expanded(
-                    child: TabBarView(
-                      controller: _controller,
-                      children: <Widget>[
-                        MovieDetailDiscription(
-                          detail: detail,
+            ? loadingIndicator()
+            : CustomScrollView(
+                slivers: <Widget>[
+                  // SliverPadding(
+                  //   padding: EdgeInsets.only(top: 60),
+
+                  // ),
+                  SliverAppBar(
+                    automaticallyImplyLeading: false,
+                    //title: Text(widget.movie.title),
+
+                    pinned: false,
+                    expandedHeight: 200.0,
+
+                    flexibleSpace: Container(
+                        height: 200,
+                        child: PageView.builder(
+                          // physics: BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          pageSnapping: true,
+                          controller: pageController,
+                          onPageChanged: (currentPage) {},
+                          itemCount: detail.images.backdrops.length,
+                          itemBuilder: (context, index) {
+                            return _buildPageViewContent(
+                                context, detail.images.backdrops[index]);
+                          },
                         ),
-                        similarMovieListComponents(),
-                        getMoviesTrailerWidget(),
-                        MovieCastList()
-                      ],
-                    ),
+                      ),
                   ),
+                  SliverList(delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      /// To convert this infinite list to a list with "n" no of items,
+                      /// uncomment the following line:
+                      if (index > 0) return null;
+                      return Container(
+                        height: MediaQuery.of(context).size.height - 250,
+                        child: tabBar(),
+                      );
+                    },
+                  ))
                 ],
               ),
       ),
+    );
+  }
+
+  Widget tabBar() {
+    return Column(
+      children: <Widget>[
+        TabBar(controller: _controller, tabs: <Tab>[
+          Tab(
+            text: "Detail",
+            icon: Icon(
+              Icons.description,
+              color: Colors.white,
+            ),
+          ),
+          Tab(
+              text: "Reviews",
+              icon: Icon(
+                Icons.rate_review,
+                color: Colors.white,
+              )),
+          Tab(
+              text: "Related",
+              icon: Icon(
+                Icons.more,
+                color: Colors.white,
+              )),
+          Tab(
+              text: "Trailers",
+              icon: Icon(
+                Icons.video_library,
+                color: Colors.white,
+              )),
+          
+        ]),
+        Expanded(
+          child: TabBarView(
+            controller: _controller,
+            children: <Widget>[
+              MovieDetailDiscription(
+                detail: detail,
+              ),
+              MovieRevies(reviews: reviews,),
+              similarMovieListComponents(),
+              getMoviesTrailerWidget(),
+              
+            ],
+          ),
+        ),
+      ],
+    );
+  }
+
+  Widget _buildPageViewContent(BuildContext context, Poster image) {
+    String url = '${kPosterImageBaseUrl}w780/${image.filePath}';
+    print(url);
+    return ClipRRect(
+      borderRadius: BorderRadius.all(Radius.circular(10.0)),
+      child: FadeInImage.assetNetwork(
+          image: url,
+          placeholder: 'assets/images/loading.gif',
+          fit: BoxFit.cover),
     );
   }
 }

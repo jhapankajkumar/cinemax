@@ -1,0 +1,19 @@
+{
+    "logs": [
+        {
+            "outputFile": "/Users/admin/Documents/project/cinemax/build/app/intermediates/incremental/mergeDebugResources/merged.dir/values-sk/values-sk.xml",
+            "map": [
+                {
+                    "source": "/Users/admin/.gradle/caches/transforms-1/files-1.1/core-1.0.0.aar/014f93ea7b0b918eedd378953e1be1e6/res/values-sk/values-sk.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}

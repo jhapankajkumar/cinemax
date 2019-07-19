@@ -1,34 +1,49 @@
-// enum MovieListType<String> { 'Now Playing', 'TA', DE }
+import 'dart:io' show Platform;
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
+Widget loadingIndicator() {
+  Widget indicator;
+  if (Platform.isAndroid) {
+    indicator =  Center(
+      child: CircularProgressIndicator(),
+    );
+  } else if (Platform.isIOS) {
+    indicator =  Center(
+      child: CupertinoActivityIndicator(),
+    );
+  }
+  return indicator;
+}
 
-enum MovieListType{
-      NowPaying,
-      Upcoming,
-      Popular,
-      Trending,
-      TopRated,
+enum MovieListType {
+  NowPaying,
+  Upcoming,
+  Popular,
+  Trending,
+  TopRated,
 }
 
 String getTextForEnum(MovieListType type) {
   switch (type) {
     case MovieListType.NowPaying:
-      return 'Now Playing';
+      return 'NOW PLAYING';
       break;
     case MovieListType.Upcoming:
-      return 'Upcoming';
+      return 'UPCOMING';
       break;
     case MovieListType.Popular:
-      return 'Popular';
+      return 'POPULAR';
       break;
     case MovieListType.Trending:
-      return 'Trending';
-      break; 
+      return 'TRENDING';
+      break;
 
     case MovieListType.TopRated:
-      return 'Top Rated';
-      break;  
-      
-      default:
+      return 'TOP RATED';
+      break;
+
+    default:
       return '';
   }
 }

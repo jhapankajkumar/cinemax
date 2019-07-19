@@ -1,4 +1,5 @@
 import 'package:cinemax/screens/home_screen.dart';
+import 'package:cinemax/util/constant.dart';
 import 'package:flutter/material.dart';
 
 
@@ -10,7 +11,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData.dark(),
+      theme: appTheme,
       home: HomeScreen(title: 'Cinemax'),
     );
   }

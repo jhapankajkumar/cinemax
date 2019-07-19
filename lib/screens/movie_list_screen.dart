@@ -5,6 +5,7 @@ import 'package:cinemax/screens/movie_list_card_cell.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/url_constant.dart';
 import 'package:cinemax/util/utility_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MovieListScreen extends StatefulWidget {
@@ -21,6 +22,7 @@ class MovieListScreen extends StatefulWidget {
 class MovieListScreenState extends State<MovieListScreen> {
   List<Movie> movieList;
   int currentPage;
+  int totalPage;
   @override
   void initState() {
     currentPage = 1;
@@ -67,6 +69,7 @@ class MovieListScreenState extends State<MovieListScreen> {
           List<Movie> newList = List.from(movieList)..addAll(list.results);
           movieList = newList;
         } else {
+          totalPage = list.totalPages;
           movieList = list.results;
         }
       });
@@ -99,9 +102,7 @@ class MovieListScreenState extends State<MovieListScreen> {
     Widget component = Container();
 
     if (movieList == null) {
-      component = Center(
-        child: CircularProgressIndicator(),
-      );
+      component = loadingIndicator();
     } else if (movieList.length == 0) {
       component = Center(
         child: Text('No Data Available'),
@@ -122,9 +123,9 @@ class MovieListScreenState extends State<MovieListScreen> {
           scrollDirection: Axis.vertical,
           itemCount: rowCount,
           itemBuilder: (context, index) {
-            if (index  == rowCount - 1 ) {  
+            if (index  == rowCount - 1 &&  currentPage <= totalPage) {  
               _getMovieList(currentPage);
-              return Center(child: CircularProgressIndicator());
+              return loadingIndicator();
             } else {
               return CardListCell.buildCardCell(
                   index, context, movieList, _cardDidTap);

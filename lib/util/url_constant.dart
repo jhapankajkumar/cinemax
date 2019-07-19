@@ -26,13 +26,25 @@ const String kUpcomingMovieUrl = '$kBaseUrl/movie/upcoming?api_key=$kApiKey&page
 const String kTrendingMovieUrl = '$kBaseUrl/trending/movie/day?api_key=$kApiKey&page=';
 
 
+
+
 //Movie Detail
 
 const String kPosterImageBaseUrl = 'http://image.tmdb.org/t/p/';
 //"w92", "w154", "w185", "w342", "w500", "w780"
 
 String getDetailUrl(int movieId) {
-  var url = '$kBaseUrl/movie/$movieId?api_key=$kApiKey&append_to_response=videos';
+  var url = '$kBaseUrl/movie/$movieId?api_key=$kApiKey&append_to_response=images';
+  return url;
+}
+
+String getVideoListUrl(int movieid) {
+  var url = '$kBaseUrl/movie/$movieid/videos?api_key=$kApiKey';
+  return url;
+}
+
+String getCreditsUrl(int movieid) {
+  var url = '$kBaseUrl/movie/$movieid/credits?api_key=$kApiKey';
   return url;
 }
 
@@ -42,6 +54,15 @@ String getSimilarMovieUrl(int movieId, int pageNo) {
   return url;
 }
 
+String getMovieReviewUrl(int movieId, int pageNo){
+  var url = '$kBaseUrl/movie/$movieId/reviews?api_key=$kApiKey&page=$pageNo';
+  return url;
+}
+
+String getMovieUrlWithGenre(int genreId, int pageNo) {
+  var url =  '$kBaseUrl/discover/movie?api_key=$kApiKey&sort_by=popularity.desc&include_adult=false&include_video=false&page=$pageNo&with_genres=$genreId';
+  return url;
+}
 
 
 //a33b1787ab28a5b8ed06cfda0668ca5a40e77379

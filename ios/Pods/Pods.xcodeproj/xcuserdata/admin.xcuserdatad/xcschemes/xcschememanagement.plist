@@ -14,22 +14,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>XCDYouTubeKit.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>flutter_youtube.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>share.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
-		<key>youtube_player.xcscheme</key>
+		<key>ytview.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
