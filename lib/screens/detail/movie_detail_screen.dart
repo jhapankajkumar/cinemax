@@ -26,7 +26,6 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
   TabController _controller;
   List<Movie> relatedMovies;
 
-
   _getMovieDetail(int movieId) async {
     var data = await MovieServices().getMovieDetail(movieId);
     var movieDetail = MovieDetail.fromJson(data);
@@ -36,12 +35,12 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
   }
 
   _getRelatedMovies(int movieId) async {
-      var data = await MovieServices().getRelatedMovies(movieId,1);
+    var data = await MovieServices().getRelatedMovies(movieId, 1);
     var list = Movies.fromJson(data);
     setState(() {
       relatedMovies = list.results;
     });
-  } 
+  }
 
   @override
   void initState() {
@@ -53,46 +52,47 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     super.initState();
   }
 
-  Widget similarMovieListComponents(){
+  Widget similarMovieListComponents() {
     Widget similarComponent;
-    if (relatedMovies == null){
-      similarComponent = Center(child: CircularProgressIndicator(),);
-    }
-    else if (relatedMovies != null && relatedMovies.length ==0) {
-      similarComponent = Center(child: Text("No Related movies found"),);
-    }
-    else {
-      similarComponent = SimilarMovieList(relatedMovies: relatedMovies,);
+    if (relatedMovies == null) {
+      similarComponent = Center(
+        child: CircularProgressIndicator(),
+      );
+    } else if (relatedMovies != null && relatedMovies.length == 0) {
+      similarComponent = Center(
+        child: Text("No Related movies found"),
+      );
+    } else {
+      similarComponent = SimilarMovieList(
+        relatedMovies: relatedMovies,
+      );
     }
     return similarComponent;
   }
 
-  Widget getMoviesTrailerWidget(){
+  Widget getMoviesTrailerWidget() {
     Widget components;
-    if (relatedMovies == null || detail == null){
-      components = Center(child: CircularProgressIndicator(),);
-    }
-    else if (detail != null && detail.videos != null && detail.videos.results.length  == 0) {
-      components = Center(child: Text("No Videos available"),);
-    }
-    else {
-      components = MovieTrailerList(trailers: detail.videos.results,);
+    if (relatedMovies == null || detail == null) {
+      components = Center(
+        child: CircularProgressIndicator(),
+      );
+    } else if (detail != null &&
+        detail.videos != null &&
+        detail.videos.results.length == 0) {
+      components = Center(
+        child: Text("No Videos available"),
+      );
+    } else {
+      components = MovieTrailerList(detail.videos.results);
     }
     return components;
   }
 
-  Widget getMovieDetailDiscription(){
-    
-  }
-
-
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: AppBar(
         title: Text(widget.movie.title),
-        
       ),
       body: Container(
         child: detail == null
@@ -151,16 +151,18 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
                     )
                   ]),
                   TabBar(controller: _controller, tabs: <Tab>[
-                     Tab(text: "Details"),
-                     Tab(text: "Related"),
-                     Tab(text: "Trailers"),
-                     Tab(text: "Cast"),
-                  ]), 
+                    Tab(text: "Detail",icon: Icon(Icons.description,color: Colors.white,),),
+                    Tab(text: "Related",icon: Icon(Icons.more,color: Colors.white,)),
+                    Tab(text: "Trailers" ,icon: Icon(Icons.video_library,color: Colors.white,)),
+                    Tab(text: "Cast",icon: Icon(Icons.cast,color: Colors.white,)),
+                  ]),
                   Expanded(
-                                      child: TabBarView(
+                    child: TabBarView(
                       controller: _controller,
                       children: <Widget>[
-                        MovieDetailDiscription(),
+                        MovieDetailDiscription(
+                          detail: detail,
+                        ),
                         similarMovieListComponents(),
                         getMoviesTrailerWidget(),
                         MovieCastList()
@@ -173,12 +175,3 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     );
   }
 }
-
-
-
-
-
-
-
-
-

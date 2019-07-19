@@ -5,6 +5,7 @@ enum MovieListType{
       NowPaying,
       Upcoming,
       Popular,
+      Trending,
       TopRated,
 }
 
@@ -19,6 +20,9 @@ String getTextForEnum(MovieListType type) {
     case MovieListType.Popular:
       return 'Popular';
       break;
+    case MovieListType.Trending:
+      return 'Trending';
+      break; 
 
     case MovieListType.TopRated:
       return 'Top Rated';

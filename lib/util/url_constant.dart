@@ -22,6 +22,9 @@ const String kPopularMovieUrl = '$kBaseUrl/movie/popular?api_key=$kApiKey&page='
 //Upcoming
 const String kUpcomingMovieUrl = '$kBaseUrl/movie/upcoming?api_key=$kApiKey&page=';
 
+///Trending
+const String kTrendingMovieUrl = '$kBaseUrl/trending/movie/day?api_key=$kApiKey&page=';
+
 
 //Movie Detail
 

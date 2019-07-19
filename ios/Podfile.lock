@@ -1,0 +1,41 @@
+PODS:
+  - Flutter (1.0.0)
+  - flutter_youtube (0.0.1):
+    - Flutter
+    - XCDYouTubeKit
+  - share (0.5.2):
+    - Flutter
+  - XCDYouTubeKit (2.7.7)
+  - youtube_player (0.0.1):
+    - Flutter
+
+DEPENDENCIES:
+  - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_youtube (from `.symlinks/plugins/flutter_youtube/ios`)
+  - share (from `.symlinks/plugins/share/ios`)
+  - youtube_player (from `.symlinks/plugins/youtube_player/ios`)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - XCDYouTubeKit
+
+EXTERNAL SOURCES:
+  Flutter:
+    :path: ".symlinks/flutter/ios"
+  flutter_youtube:
+    :path: ".symlinks/plugins/flutter_youtube/ios"
+  share:
+    :path: ".symlinks/plugins/share/ios"
+  youtube_player:
+    :path: ".symlinks/plugins/youtube_player/ios"
+
+SPEC CHECKSUMS:
+  Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  flutter_youtube: 142f8d5af0a11963bdc73e13bcae6eb78db746c2
+  share: 7d22fe8baedfe93aefd864bf0b73f29711fbb0a3
+  XCDYouTubeKit: ab0bd023c24c69a417c8beacda9502e99e23d6b4
+  youtube_player: 66aa84ca8819ad8ef7305299c2ee31ccf42121a1
+
+PODFILE CHECKSUM: 7fb83752f59ead6285236625b82473f90b1cb932
+
+COCOAPODS: 1.7.2

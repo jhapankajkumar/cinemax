@@ -1,0 +1,1867 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 94078A06C17E946ADC1F2C06726219E5 /* Build configuration list for PBXAggregateTarget "Flutter" */;
+			buildPhases = (
+			);
+			dependencies = (
+			);
+			name = Flutter;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		043D0BC64395DDD089B83613D8166ABD /* XCDYouTubeVideoWebpage.h in Headers */ = {isa = PBXBuildFile; fileRef = 10E87B31E72787AE2EC26C7EDACFB71E /* XCDYouTubeVideoWebpage.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		08497A8861CC7AE348AD1CE0AFB721ED /* YoutubePlayerPlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 1534032A9C752EDDFA9B27F91EE44396 /* YoutubePlayerPlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		0D9B7927F83AE8095A09C477DFD91912 /* XCDYouTubeDashManifestXML.m in Sources */ = {isa = PBXBuildFile; fileRef = 80E1C81404766562B8B7979D0E78541E /* XCDYouTubeDashManifestXML.m */; };
+		10A1A14DBE336AEF49DC0A663235CD0D /* XCDYouTubeVideoOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 3FD670AFC07FFBEC67F56924FC93507B /* XCDYouTubeVideoOperation.m */; };
+		1FD5E59AD16F11A67DBAD537D93CF0E9 /* XCDYouTubePlayerScript.m in Sources */ = {isa = PBXBuildFile; fileRef = 7F8734E0F0DAEAEC4144B390743A6CB7 /* XCDYouTubePlayerScript.m */; };
+		202122827423A7298EF983BE33B73E69 /* XCDYouTubePlayerScript.h in Headers */ = {isa = PBXBuildFile; fileRef = 6038B6270EB6B5B16AC82C3565B1774F /* XCDYouTubePlayerScript.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		25526B27A886B13D0F953F6B9605B260 /* XCDYouTubeLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 7915F0753545D74CC5C4A1F86C875268 /* XCDYouTubeLogger.m */; };
+		2F730CDDA98E71A4178CD08DBC61B8FB /* XCDYouTubeDashManifestXML.h in Headers */ = {isa = PBXBuildFile; fileRef = 80EBF4A9098975D7A64AD3BCA2B5AED3 /* XCDYouTubeDashManifestXML.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		301191E10F3D3D0249637ADC9FFEBFE2 /* XCDYouTubeVideoWebpage.m in Sources */ = {isa = PBXBuildFile; fileRef = 745DD3FA4D63467BEFEF0B80D294167C /* XCDYouTubeVideoWebpage.m */; };
+		3B33A3FB3EAF9F1CAC227D0BF8640DCB /* XCDYouTubeVideo.m in Sources */ = {isa = PBXBuildFile; fileRef = 79B4C66DD2FF03E4EA2852317CBE1555 /* XCDYouTubeVideo.m */; };
+		3E531BF67E4C5E161464CEC819BD4014 /* XCDYouTubeVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 8008431903596375F99615C153904A44 /* XCDYouTubeVideoPlayerViewController.m */; };
+		57C9D8AD82D7F8476DB620B32061B948 /* XCDYouTubeError.h in Headers */ = {isa = PBXBuildFile; fileRef = E91512A05D95D31F8CE47CD9333D7E86 /* XCDYouTubeError.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		70E2C301E6A8D6534EEBB1AF4B11A413 /* XCDYouTubeVideoPlayerViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = 3E35F2C2D3D5314A9D3F2AFEA0DB3641 /* XCDYouTubeVideoPlayerViewController.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		7441F5AF3B99E632DE333978F7135664 /* FlutterYoutubePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 2A8AFB6C23578CDE209C4D54F4271AF3 /* FlutterYoutubePlugin.m */; };
+		8A56957C8B064849F6648D45DACF57C7 /* XCDYouTubeLogger+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = 6FCEED014E45330BF8A31A526A3AF3A2 /* XCDYouTubeLogger+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9564107E57CE0D1F038276F47FAC39A6 /* XCDYouTubeClient.h in Headers */ = {isa = PBXBuildFile; fileRef = 24A88E7B03CDC28A45CF42CC3E71C955 /* XCDYouTubeClient.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		986AE4220D0BB4C096C6D401265AB5B3 /* SharePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 17EF829E0B23CCF89F561AA997DD2EFE /* SharePlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		9A70CBB5ADE7113EF65C67AB91FF8340 /* XCDYouTubeClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AE0C7DA7383F7B142A3207C8083005B /* XCDYouTubeClient.m */; };
+		A00AB34071DE27309EA0C424BA996C80 /* XCDYouTubeLogger.h in Headers */ = {isa = PBXBuildFile; fileRef = FFE8A70C16AE6637388B1EA76F089328 /* XCDYouTubeLogger.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AEAC5EFFC771D1E5F665AB6114B96023 /* XCDYouTubeVideoOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 09E051DEAAAAEE71C4FC8061522649DC /* XCDYouTubeVideoOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		AF8B49019D04A775867D53C859F8B918 /* Pods-Runner-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0FB8FFF62F4BCF0BA942F28F4B469FC2 /* Pods-Runner-dummy.m */; };
+		B1358BA95F8D5FA0C763151C9F9C9877 /* XCDYouTubeOperation.h in Headers */ = {isa = PBXBuildFile; fileRef = 447A61A82E98ECA1AD47C4123497DDA7 /* XCDYouTubeOperation.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		B8193E4DD24B1A523757A421FC374E9C /* SharePlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = 3500D1623A827564778C86759D338680 /* SharePlugin.m */; };
+		BE65F842EB030C95F3692F04009BD2FA /* flutter_youtube-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 182B325701EBF6E3161786AB61ECA3A2 /* flutter_youtube-dummy.m */; };
+		C164C07DE17B750EECA33FC4B3B971AA /* FlutterYoutubePlugin.h in Headers */ = {isa = PBXBuildFile; fileRef = 167435E2DB5C2AF9681E2141F26817E7 /* FlutterYoutubePlugin.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		C3258C3001B5A5CF19FCA5D6092DC461 /* XCDYouTubeVideo+Private.h in Headers */ = {isa = PBXBuildFile; fileRef = F1D4A3D16857865966E4D9E48B37C33F /* XCDYouTubeVideo+Private.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		D2AA2CBE26B0BDFD6086E59A4CDDF253 /* youtube_player-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 35609E5672A5CB50BCD9FB84D974712E /* youtube_player-dummy.m */; };
+		D790E5D8EE749F1EDE9BF07D18993F55 /* share-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F523E8599438C6F1BC192628579FF3A /* share-dummy.m */; };
+		D8F82F77B813C7357D85D04F2524FF73 /* XCDYouTubeKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 1E1576B0A018305A82FE49A6C454E2C9 /* XCDYouTubeKit.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		DFEF27E1DA2BC9996BC16CA4F5A5EBA7 /* XCDYouTubeVideo.h in Headers */ = {isa = PBXBuildFile; fileRef = 05FCE616580B2ABDA3E48C25E007A079 /* XCDYouTubeVideo.h */; settings = {ATTRIBUTES = (Project, ); }; };
+		F31E93DA2EBD9A9DDEF1AEBD12EF826A /* YoutubePlayerPlugin.m in Sources */ = {isa = PBXBuildFile; fileRef = B4351D85DAE72EA801E90DFED363559D /* YoutubePlayerPlugin.m */; };
+		FC9EC5FADF34610BA1B397C1F1818D19 /* XCDYouTubeKit-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B5960E27892F468051A52FC7E6D012ED /* XCDYouTubeKit-dummy.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		073BD33800F912401AA03874F2D78C84 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C60A0DC53D93FE007BCBC2589A5EE400;
+			remoteInfo = XCDYouTubeKit;
+		};
+		5D3ADD2184C52D50ABFF68FC88D9881A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = AD61551ADB9F20B053F5368A2E332738;
+			remoteInfo = share;
+		};
+		6648D8D60305E2CB25D162D1FAA29204 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 43071A9863A169BBDED5B44F5441E657;
+			remoteInfo = flutter_youtube;
+		};
+		6F545525B7D94F205F408946FDBFF304 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BB8C0962B1BBD9CF1718299019B922E1;
+			remoteInfo = youtube_player;
+		};
+		79C6D0DC06D5A16F2744011F8A034F44 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+		8A88309D59E350B011221249C79A9668 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+		8D1F9A84BCF28193DE0102AA28A33107 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+		A74A4D20FC1566E34D5C4B693CB3246A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = C60A0DC53D93FE007BCBC2589A5EE400;
+			remoteInfo = XCDYouTubeKit;
+		};
+		D1892B7B2532E153FF4C5AC5245A5344 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 1EFDDC32A34D56D411E640A81DCD9E73;
+			remoteInfo = Flutter;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		03286B9E102640B0F4369CA1B54C7705 /* Flutter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Flutter.framework; path = ../../../../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.framework; sourceTree = "<group>"; };
+		05D8030A2F57E7D5E0DF95103484BBA2 /* XCDYouTubeKit-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "XCDYouTubeKit-prefix.pch"; sourceTree = "<group>"; };
+		05FCE616580B2ABDA3E48C25E007A079 /* XCDYouTubeVideo.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideo.h; path = XCDYouTubeKit/XCDYouTubeVideo.h; sourceTree = "<group>"; };
+		09E051DEAAAAEE71C4FC8061522649DC /* XCDYouTubeVideoOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoOperation.h; path = XCDYouTubeKit/XCDYouTubeVideoOperation.h; sourceTree = "<group>"; };
+		0BFCEA83FF73561FC3966ED8A434AD54 /* Pods-Runner-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Runner-frameworks.sh"; sourceTree = "<group>"; };
+		0FB8FFF62F4BCF0BA942F28F4B469FC2 /* Pods-Runner-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Runner-dummy.m"; sourceTree = "<group>"; };
+		10E87B31E72787AE2EC26C7EDACFB71E /* XCDYouTubeVideoWebpage.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoWebpage.h; path = XCDYouTubeKit/XCDYouTubeVideoWebpage.h; sourceTree = "<group>"; };
+		1534032A9C752EDDFA9B27F91EE44396 /* YoutubePlayerPlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = YoutubePlayerPlugin.h; path = "../../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player-3.4.1/ios/Classes/YoutubePlayerPlugin.h"; sourceTree = "<group>"; };
+		167435E2DB5C2AF9681E2141F26817E7 /* FlutterYoutubePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = FlutterYoutubePlugin.h; path = "../../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_youtube-1.1.6/ios/Classes/FlutterYoutubePlugin.h"; sourceTree = "<group>"; };
+		17EF829E0B23CCF89F561AA997DD2EFE /* SharePlugin.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SharePlugin.h; path = "../../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.2/ios/Classes/SharePlugin.h"; sourceTree = "<group>"; };
+		182B325701EBF6E3161786AB61ECA3A2 /* flutter_youtube-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "flutter_youtube-dummy.m"; sourceTree = "<group>"; };
+		1B98D6A80A53D66E0B9E226D79941E42 /* youtube_player.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = youtube_player.podspec; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player-3.4.1/ios/youtube_player.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		1BABBF7D1F34BE226F74393A5A54741B /* youtube_player.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = youtube_player.xcconfig; sourceTree = "<group>"; };
+		1C99D4F6F23E574582C18A84CEF77F5F /* libyoutube_player.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libyoutube_player.a; path = libyoutube_player.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1E1576B0A018305A82FE49A6C454E2C9 /* XCDYouTubeKit.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeKit.h; path = XCDYouTubeKit/XCDYouTubeKit.h; sourceTree = "<group>"; };
+		24A88E7B03CDC28A45CF42CC3E71C955 /* XCDYouTubeClient.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeClient.h; path = XCDYouTubeKit/XCDYouTubeClient.h; sourceTree = "<group>"; };
+		2A8AFB6C23578CDE209C4D54F4271AF3 /* FlutterYoutubePlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = FlutterYoutubePlugin.m; path = "../../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_youtube-1.1.6/ios/Classes/FlutterYoutubePlugin.m"; sourceTree = "<group>"; };
+		3500D1623A827564778C86759D338680 /* SharePlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SharePlugin.m; path = "../../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.2/ios/Classes/SharePlugin.m"; sourceTree = "<group>"; };
+		35609E5672A5CB50BCD9FB84D974712E /* youtube_player-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "youtube_player-dummy.m"; sourceTree = "<group>"; };
+		388D429BFB277C75BD19F56B471B0B4B /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.2/LICENSE"; sourceTree = "<group>"; };
+		3AACB50F9A2D78504BC0D44AAB752CF0 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = ../../../../../../../flutter/bin/cache/artifacts/engine/ios/LICENSE; sourceTree = "<group>"; };
+		3E35F2C2D3D5314A9D3F2AFEA0DB3641 /* XCDYouTubeVideoPlayerViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeVideoPlayerViewController.h; path = XCDYouTubeKit/XCDYouTubeVideoPlayerViewController.h; sourceTree = "<group>"; };
+		3FD670AFC07FFBEC67F56924FC93507B /* XCDYouTubeVideoOperation.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoOperation.m; path = XCDYouTubeKit/XCDYouTubeVideoOperation.m; sourceTree = "<group>"; };
+		447A61A82E98ECA1AD47C4123497DDA7 /* XCDYouTubeOperation.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeOperation.h; path = XCDYouTubeKit/XCDYouTubeOperation.h; sourceTree = "<group>"; };
+		4F523E8599438C6F1BC192628579FF3A /* share-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "share-dummy.m"; sourceTree = "<group>"; };
+		4F9F7705204537009A042BC474BBBC55 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player-3.4.1/LICENSE"; sourceTree = "<group>"; };
+		6038B6270EB6B5B16AC82C3565B1774F /* XCDYouTubePlayerScript.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubePlayerScript.h; path = XCDYouTubeKit/XCDYouTubePlayerScript.h; sourceTree = "<group>"; };
+		669E8F25E1897672BDB80B7EB784DA24 /* libPods-Runner.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-Runner.a"; path = "libPods-Runner.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		6FCEED014E45330BF8A31A526A3AF3A2 /* XCDYouTubeLogger+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCDYouTubeLogger+Private.h"; path = "XCDYouTubeKit/XCDYouTubeLogger+Private.h"; sourceTree = "<group>"; };
+		72993C1CB81898E6B1219BC3E6EF3836 /* share-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "share-prefix.pch"; sourceTree = "<group>"; };
+		745DD3FA4D63467BEFEF0B80D294167C /* XCDYouTubeVideoWebpage.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoWebpage.m; path = XCDYouTubeKit/XCDYouTubeVideoWebpage.m; sourceTree = "<group>"; };
+		7915F0753545D74CC5C4A1F86C875268 /* XCDYouTubeLogger.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeLogger.m; path = XCDYouTubeKit/XCDYouTubeLogger.m; sourceTree = "<group>"; };
+		79B4C66DD2FF03E4EA2852317CBE1555 /* XCDYouTubeVideo.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideo.m; path = XCDYouTubeKit/XCDYouTubeVideo.m; sourceTree = "<group>"; };
+		7AE658193E49642A176867D134822B21 /* flutter_youtube.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = flutter_youtube.podspec; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_youtube-1.1.6/ios/flutter_youtube.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		7D5186300A3C1747008E89E11C58BB0D /* libflutter_youtube.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libflutter_youtube.a; path = libflutter_youtube.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F8734E0F0DAEAEC4144B390743A6CB7 /* XCDYouTubePlayerScript.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubePlayerScript.m; path = XCDYouTubeKit/XCDYouTubePlayerScript.m; sourceTree = "<group>"; };
+		8008431903596375F99615C153904A44 /* XCDYouTubeVideoPlayerViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeVideoPlayerViewController.m; path = XCDYouTubeKit/XCDYouTubeVideoPlayerViewController.m; sourceTree = "<group>"; };
+		80E1C81404766562B8B7979D0E78541E /* XCDYouTubeDashManifestXML.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeDashManifestXML.m; path = XCDYouTubeKit/XCDYouTubeDashManifestXML.m; sourceTree = "<group>"; };
+		80EBF4A9098975D7A64AD3BCA2B5AED3 /* XCDYouTubeDashManifestXML.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeDashManifestXML.h; path = XCDYouTubeKit/XCDYouTubeDashManifestXML.h; sourceTree = "<group>"; };
+		842B7D6C4814D1257FF7380C8E0E4B92 /* libXCDYouTubeKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libXCDYouTubeKit.a; path = libXCDYouTubeKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		8C1467E6A5A3F2C108BEE5986821DFFD /* youtube_player-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "youtube_player-prefix.pch"; sourceTree = "<group>"; };
+		8C3477F1E6616960E815FBE9E0140F1C /* Pods-Runner-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Runner-acknowledgements.plist"; sourceTree = "<group>"; };
+		912D21ED403DAFEBFAD99CAFD29036D1 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; name = LICENSE; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_youtube-1.1.6/LICENSE"; sourceTree = "<group>"; };
+		9AE0C7DA7383F7B142A3207C8083005B /* XCDYouTubeClient.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = XCDYouTubeClient.m; path = XCDYouTubeKit/XCDYouTubeClient.m; sourceTree = "<group>"; };
+		9D940727FF8FB9C785EB98E56350EF41 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		A1FAE194602965C35DF6F7EDAACC44FE /* libshare.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = libshare.a; path = libshare.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3C9D3CFCF3FA7E3BB8B31D0E3B0DA40 /* Pods-Runner.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.debug.xcconfig"; sourceTree = "<group>"; };
+		B4351D85DAE72EA801E90DFED363559D /* YoutubePlayerPlugin.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = YoutubePlayerPlugin.m; path = "../../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player-3.4.1/ios/Classes/YoutubePlayerPlugin.m"; sourceTree = "<group>"; };
+		B5960E27892F468051A52FC7E6D012ED /* XCDYouTubeKit-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "XCDYouTubeKit-dummy.m"; sourceTree = "<group>"; };
+		B88B918893948E5E894C4A7A4BD7DAC5 /* XCDYouTubeKit.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = XCDYouTubeKit.xcconfig; sourceTree = "<group>"; };
+		CF0A113FB984B721817152276C0053E3 /* Flutter.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = Flutter.xcconfig; sourceTree = "<group>"; };
+		D032740E03701F10E4FAB6CF08FB9432 /* flutter_youtube-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "flutter_youtube-prefix.pch"; sourceTree = "<group>"; };
+		D82B680EFAA619631FD37A7093EA730D /* flutter_youtube.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = flutter_youtube.xcconfig; sourceTree = "<group>"; };
+		DF0AF5474C02B0E1B187AA8DC4AE41BC /* Pods-Runner.profile.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.profile.xcconfig"; sourceTree = "<group>"; };
+		E5ABAE8C92A5056077FF6F02481D7B6C /* Pods-Runner.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Runner.release.xcconfig"; sourceTree = "<group>"; };
+		E91512A05D95D31F8CE47CD9333D7E86 /* XCDYouTubeError.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeError.h; path = XCDYouTubeKit/XCDYouTubeError.h; sourceTree = "<group>"; };
+		ED468541C49D0804BC43219649F55161 /* Pods-Runner-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Runner-acknowledgements.markdown"; sourceTree = "<group>"; };
+		F1D4A3D16857865966E4D9E48B37C33F /* XCDYouTubeVideo+Private.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = "XCDYouTubeVideo+Private.h"; path = "XCDYouTubeKit/XCDYouTubeVideo+Private.h"; sourceTree = "<group>"; };
+		F495DA89BF4DCC5B633B4E15D95128E6 /* share.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = share.xcconfig; sourceTree = "<group>"; };
+		F7092ED512FC05E134C095439E4FAA4E /* Flutter.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = Flutter.podspec; path = ../../../../../../../flutter/bin/cache/artifacts/engine/ios/Flutter.podspec; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FA945722714B256773E2EC4243169FDF /* share.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; indentWidth = 2; lastKnownFileType = text; name = share.podspec; path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.2/ios/share.podspec"; sourceTree = "<group>"; tabWidth = 2; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		FFE8A70C16AE6637388B1EA76F089328 /* XCDYouTubeLogger.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = XCDYouTubeLogger.h; path = XCDYouTubeKit/XCDYouTubeLogger.h; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		0DD2BA4985BE3040A7E45052A13C5CCC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		45F7E606F93C19B9003FB28F750E0AA9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		78149F02AF2419E44CAD3E9C7F087F76 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9EA78434DC70E6F564E75BDE01313E29 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9F61C3A1428B26CD486A1905148F9422 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0A1B1DA96C20D56962BA88C3A0CE5A22 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				FB77F19D1244715DA6AF2DC386440341 /* project */,
+			);
+			name = Documents;
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		0A8661383452A0ABF2720A76ACC195A2 /* flutter_youtube */ = {
+			isa = PBXGroup;
+			children = (
+				0DBC701BCFBFFEA85010DB274ABC85E9 /* ios */,
+			);
+			name = flutter_youtube;
+			path = flutter_youtube;
+			sourceTree = "<group>";
+		};
+		0AA00D71D48B04BF9C41C769EFBFB9D5 /* Pods-Runner */ = {
+			isa = PBXGroup;
+			children = (
+				ED468541C49D0804BC43219649F55161 /* Pods-Runner-acknowledgements.markdown */,
+				8C3477F1E6616960E815FBE9E0140F1C /* Pods-Runner-acknowledgements.plist */,
+				0FB8FFF62F4BCF0BA942F28F4B469FC2 /* Pods-Runner-dummy.m */,
+				0BFCEA83FF73561FC3966ED8A434AD54 /* Pods-Runner-frameworks.sh */,
+				B3C9D3CFCF3FA7E3BB8B31D0E3B0DA40 /* Pods-Runner.debug.xcconfig */,
+				DF0AF5474C02B0E1B187AA8DC4AE41BC /* Pods-Runner.profile.xcconfig */,
+				E5ABAE8C92A5056077FF6F02481D7B6C /* Pods-Runner.release.xcconfig */,
+			);
+			name = "Pods-Runner";
+			path = "Target Support Files/Pods-Runner";
+			sourceTree = "<group>";
+		};
+		0DBC701BCFBFFEA85010DB274ABC85E9 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				E3C929BE6AC9955FDECEFEB72A07B17C /* Classes */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		0EA9C8768073DC8893D334984A719F35 /* cinemax */ = {
+			isa = PBXGroup;
+			children = (
+				8CD28A1BBBC769792CB4BB7D64D167CF /* ios */,
+			);
+			name = cinemax;
+			path = cinemax;
+			sourceTree = "<group>";
+		};
+		13033C4FD7AA562D0BB2383E783AB7A4 /* Flutter */ = {
+			isa = PBXGroup;
+			children = (
+				CAFCE9EBBA35BC0CD5A0B4C2E4E23631 /* Frameworks */,
+				15B57E28AF90ABBD12C589F930427DEB /* Pod */,
+				92D62E8A0F119206038B2C8F9D3FC79C /* Support Files */,
+			);
+			name = Flutter;
+			path = ../.symlinks/flutter/ios;
+			sourceTree = "<group>";
+		};
+		152CF9108ADD2E6F9250EDFE44F5F3D2 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				FA7B36002F981A143A52C2A477422733 /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/youtube_player-3.4.1/ios";
+			sourceTree = "<group>";
+		};
+		15B57E28AF90ABBD12C589F930427DEB /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				F7092ED512FC05E134C095439E4FAA4E /* Flutter.podspec */,
+				3AACB50F9A2D78504BC0D44AAB752CF0 /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		168E3025425D7B097BAA6581872AA1C2 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				CE0974DA9D8C8A612EEFC1F52E43DEA5 /* .symlinks */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		1974DED7813D97F1101164C02E9A0DC1 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				D82B680EFAA619631FD37A7093EA730D /* flutter_youtube.xcconfig */,
+				182B325701EBF6E3161786AB61ECA3A2 /* flutter_youtube-dummy.m */,
+				D032740E03701F10E4FAB6CF08FB9432 /* flutter_youtube-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/flutter_youtube";
+			sourceTree = "<group>";
+		};
+		20CA24AFEE558BC5549F85084F085836 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				5FDC200120EB526EC76A2010E495E8BA /* share */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		2E9FEB00D4787D40EF513121BA96DBE3 /* XCDYouTubeKit */ = {
+			isa = PBXGroup;
+			children = (
+				24A88E7B03CDC28A45CF42CC3E71C955 /* XCDYouTubeClient.h */,
+				9AE0C7DA7383F7B142A3207C8083005B /* XCDYouTubeClient.m */,
+				80EBF4A9098975D7A64AD3BCA2B5AED3 /* XCDYouTubeDashManifestXML.h */,
+				80E1C81404766562B8B7979D0E78541E /* XCDYouTubeDashManifestXML.m */,
+				E91512A05D95D31F8CE47CD9333D7E86 /* XCDYouTubeError.h */,
+				1E1576B0A018305A82FE49A6C454E2C9 /* XCDYouTubeKit.h */,
+				FFE8A70C16AE6637388B1EA76F089328 /* XCDYouTubeLogger.h */,
+				7915F0753545D74CC5C4A1F86C875268 /* XCDYouTubeLogger.m */,
+				6FCEED014E45330BF8A31A526A3AF3A2 /* XCDYouTubeLogger+Private.h */,
+				447A61A82E98ECA1AD47C4123497DDA7 /* XCDYouTubeOperation.h */,
+				6038B6270EB6B5B16AC82C3565B1774F /* XCDYouTubePlayerScript.h */,
+				7F8734E0F0DAEAEC4144B390743A6CB7 /* XCDYouTubePlayerScript.m */,
+				05FCE616580B2ABDA3E48C25E007A079 /* XCDYouTubeVideo.h */,
+				79B4C66DD2FF03E4EA2852317CBE1555 /* XCDYouTubeVideo.m */,
+				F1D4A3D16857865966E4D9E48B37C33F /* XCDYouTubeVideo+Private.h */,
+				09E051DEAAAAEE71C4FC8061522649DC /* XCDYouTubeVideoOperation.h */,
+				3FD670AFC07FFBEC67F56924FC93507B /* XCDYouTubeVideoOperation.m */,
+				3E35F2C2D3D5314A9D3F2AFEA0DB3641 /* XCDYouTubeVideoPlayerViewController.h */,
+				8008431903596375F99615C153904A44 /* XCDYouTubeVideoPlayerViewController.m */,
+				10E87B31E72787AE2EC26C7EDACFB71E /* XCDYouTubeVideoWebpage.h */,
+				745DD3FA4D63467BEFEF0B80D294167C /* XCDYouTubeVideoWebpage.m */,
+				C4C1BF98C23C003BB169121185332184 /* Support Files */,
+			);
+			name = XCDYouTubeKit;
+			path = XCDYouTubeKit;
+			sourceTree = "<group>";
+		};
+		2F324E887BDBDFFDA6BE8C7DCAA7CBD5 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				882B3697CC96A1C3551BF2CAF40A9711 /* Classes */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		3081687577D090898F97F1F5D4CD9F0F /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				9A12DDB0ADB1DD28D0F2F1BD262740A1 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		331D462AE96715EB3E1E91EE04FD642C /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				89318F8064DC78771BE68C0E3DC48DC4 /* Documents */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		370FF24EF5213AB6AD266FA1211472D8 /* flutter_youtube */ = {
+			isa = PBXGroup;
+			children = (
+				746AC33A0B4E39AE3E77BE3A0F8732A1 /* .. */,
+				6D0283123941BE5B4662B692B418B06C /* Pod */,
+				1974DED7813D97F1101164C02E9A0DC1 /* Support Files */,
+			);
+			name = flutter_youtube;
+			path = ../.symlinks/plugins/flutter_youtube/ios;
+			sourceTree = "<group>";
+		};
+		3B23B3344E45F70F90ED246985C10010 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7D5186300A3C1747008E89E11C58BB0D /* libflutter_youtube.a */,
+				669E8F25E1897672BDB80B7EB784DA24 /* libPods-Runner.a */,
+				A1FAE194602965C35DF6F7EDAACC44FE /* libshare.a */,
+				842B7D6C4814D1257FF7380C8E0E4B92 /* libXCDYouTubeKit.a */,
+				1C99D4F6F23E574582C18A84CEF77F5F /* libyoutube_player.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3B3993AE017D30AC9370F448B41C8A6A /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				3081687577D090898F97F1F5D4CD9F0F /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3C16A0B926206D392D88D46770D6621A /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				893E401DC8C4954414002A5A97E36233 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		424D452F4424A65D2EDEE03EB4D6210D /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				F4147E7199C301CC512F5083F0227BF8 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		44F06335D329685FF04BEC9F72147329 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				0A1B1DA96C20D56962BA88C3A0CE5A22 /* Documents */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		4DBDDB4B63B0BF6E9D1786619458DDDA /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				331D462AE96715EB3E1E91EE04FD642C /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5268E1A68E905FD2B0493C80584268EE /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				1534032A9C752EDDFA9B27F91EE44396 /* YoutubePlayerPlugin.h */,
+				B4351D85DAE72EA801E90DFED363559D /* YoutubePlayerPlugin.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		52D8F71D90E475B58248C616651E5DF5 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				4DBDDB4B63B0BF6E9D1786619458DDDA /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		564F6709CE4A7DAF20D4B1D66A21B509 /* youtube_player */ = {
+			isa = PBXGroup;
+			children = (
+				152CF9108ADD2E6F9250EDFE44F5F3D2 /* .. */,
+				C204DE042DF680A841DB831EA513AEA9 /* Pod */,
+				A8AD6C0BE29EB36FE66C40C61BF93F28 /* Support Files */,
+			);
+			name = youtube_player;
+			path = ../.symlinks/plugins/youtube_player/ios;
+			sourceTree = "<group>";
+		};
+		5661F0D6767D218B11784641021674A2 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				44F06335D329685FF04BEC9F72147329 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		5FDC200120EB526EC76A2010E495E8BA /* share */ = {
+			isa = PBXGroup;
+			children = (
+				2F324E887BDBDFFDA6BE8C7DCAA7CBD5 /* ios */,
+			);
+			name = share;
+			path = share;
+			sourceTree = "<group>";
+		};
+		68914249F3C5EE0BA02C772336323FB8 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				0EA9C8768073DC8893D334984A719F35 /* cinemax */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		6D0283123941BE5B4662B692B418B06C /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				7AE658193E49642A176867D134822B21 /* flutter_youtube.podspec */,
+				912D21ED403DAFEBFAD99CAFD29036D1 /* LICENSE */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		6D7F6F3A3268AE85F9B6B484A0109FB3 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				EED66C0EDC3EC1F21D664CF076C22DC9 /* youtube_player */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		6F2A2EF8165275926B54C1764A239A70 /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				0AA00D71D48B04BF9C41C769EFBFB9D5 /* Pods-Runner */,
+			);
+			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		70808BF012C01E254341F7A9EE4193FE /* share */ = {
+			isa = PBXGroup;
+			children = (
+				D5407AE4171C0C725577C145CE6D9201 /* .. */,
+				A83A30D38FE182DC26289BB5DB0AE796 /* Pod */,
+				A59646C3BFCE30BCF986699179479BDB /* Support Files */,
+			);
+			name = share;
+			path = ../.symlinks/plugins/share/ios;
+			sourceTree = "<group>";
+		};
+		746AC33A0B4E39AE3E77BE3A0F8732A1 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				424D452F4424A65D2EDEE03EB4D6210D /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/flutter_youtube-1.1.6/ios";
+			sourceTree = "<group>";
+		};
+		75BB2AB581792EE470FC837E46A9771B /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				52D8F71D90E475B58248C616651E5DF5 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		77BD726F9D9D9042DA6A747C2D6864D0 /* cinemax */ = {
+			isa = PBXGroup;
+			children = (
+				D7D93D857EDA76024B4AAD1ABD8213BC /* ios */,
+			);
+			name = cinemax;
+			path = cinemax;
+			sourceTree = "<group>";
+		};
+		83954F482911CF0C3A723BC3D6ED4F96 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				13033C4FD7AA562D0BB2383E783AB7A4 /* Flutter */,
+				370FF24EF5213AB6AD266FA1211472D8 /* flutter_youtube */,
+				70808BF012C01E254341F7A9EE4193FE /* share */,
+				564F6709CE4A7DAF20D4B1D66A21B509 /* youtube_player */,
+			);
+			name = "Development Pods";
+			sourceTree = "<group>";
+		};
+		882B3697CC96A1C3551BF2CAF40A9711 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				17EF829E0B23CCF89F561AA997DD2EFE /* SharePlugin.h */,
+				3500D1623A827564778C86759D338680 /* SharePlugin.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		89318F8064DC78771BE68C0E3DC48DC4 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				68914249F3C5EE0BA02C772336323FB8 /* project */,
+			);
+			name = Documents;
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		893E401DC8C4954414002A5A97E36233 /* plugins */ = {
+			isa = PBXGroup;
+			children = (
+				0A8661383452A0ABF2720A76ACC195A2 /* flutter_youtube */,
+			);
+			name = plugins;
+			path = plugins;
+			sourceTree = "<group>";
+		};
+		89DED21A5B5462FA10725B6352C93200 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				20CA24AFEE558BC5549F85084F085836 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		8AB4CFA5B63D02337DE68D7A52ABF2D7 /* Documents */ = {
+			isa = PBXGroup;
+			children = (
+				DF7DC3C95F3EACD7195992EFAAECB4C3 /* project */,
+			);
+			name = Documents;
+			path = Documents;
+			sourceTree = "<group>";
+		};
+		8CD28A1BBBC769792CB4BB7D64D167CF /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				89DED21A5B5462FA10725B6352C93200 /* .symlinks */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		913D866DCF688CE32583F745919EC075 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				5661F0D6767D218B11784641021674A2 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		92D62E8A0F119206038B2C8F9D3FC79C /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				CF0A113FB984B721817152276C0053E3 /* Flutter.xcconfig */,
+			);
+			name = "Support Files";
+			path = "../../../Pods/Target Support Files/Flutter";
+			sourceTree = "<group>";
+		};
+		9A12DDB0ADB1DD28D0F2F1BD262740A1 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				8AB4CFA5B63D02337DE68D7A52ABF2D7 /* Documents */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		9E7A63C69E3D62B22B035A10DACBC97F /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				913D866DCF688CE32583F745919EC075 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A59646C3BFCE30BCF986699179479BDB /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				F495DA89BF4DCC5B633B4E15D95128E6 /* share.xcconfig */,
+				4F523E8599438C6F1BC192628579FF3A /* share-dummy.m */,
+				72993C1CB81898E6B1219BC3E6EF3836 /* share-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/share";
+			sourceTree = "<group>";
+		};
+		A70718622910DB1B11C9516D9AA64961 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				9E7A63C69E3D62B22B035A10DACBC97F /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A7F3FF11EF4FF6B67EFEAE846EDC192E /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				3B3993AE017D30AC9370F448B41C8A6A /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		A83A30D38FE182DC26289BB5DB0AE796 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				388D429BFB277C75BD19F56B471B0B4B /* LICENSE */,
+				FA945722714B256773E2EC4243169FDF /* share.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		A8AD6C0BE29EB36FE66C40C61BF93F28 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BABBF7D1F34BE226F74393A5A54741B /* youtube_player.xcconfig */,
+				35609E5672A5CB50BCD9FB84D974712E /* youtube_player-dummy.m */,
+				8C1467E6A5A3F2C108BEE5986821DFFD /* youtube_player-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../../../../Pods/Target Support Files/youtube_player";
+			sourceTree = "<group>";
+		};
+		BD0F46048886A20C531DDA8BBD9BB490 /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				5268E1A68E905FD2B0493C80584268EE /* Classes */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		C204DE042DF680A841DB831EA513AEA9 /* Pod */ = {
+			isa = PBXGroup;
+			children = (
+				4F9F7705204537009A042BC474BBBC55 /* LICENSE */,
+				1B98D6A80A53D66E0B9E226D79941E42 /* youtube_player.podspec */,
+			);
+			name = Pod;
+			sourceTree = "<group>";
+		};
+		C4C1BF98C23C003BB169121185332184 /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				B88B918893948E5E894C4A7A4BD7DAC5 /* XCDYouTubeKit.xcconfig */,
+				B5960E27892F468051A52FC7E6D012ED /* XCDYouTubeKit-dummy.m */,
+				05D8030A2F57E7D5E0DF95103484BBA2 /* XCDYouTubeKit-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/XCDYouTubeKit";
+			sourceTree = "<group>";
+		};
+		CAFCE9EBBA35BC0CD5A0B4C2E4E23631 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				03286B9E102640B0F4369CA1B54C7705 /* Flutter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CE0974DA9D8C8A612EEFC1F52E43DEA5 /* .symlinks */ = {
+			isa = PBXGroup;
+			children = (
+				6D7F6F3A3268AE85F9B6B484A0109FB3 /* plugins */,
+			);
+			name = .symlinks;
+			path = .symlinks;
+			sourceTree = "<group>";
+		};
+		CF1408CF629C7361332E53B88F7BD30C = {
+			isa = PBXGroup;
+			children = (
+				9D940727FF8FB9C785EB98E56350EF41 /* Podfile */,
+				83954F482911CF0C3A723BC3D6ED4F96 /* Development Pods */,
+				D89477F20FB1DE18A04690586D7808C4 /* Frameworks */,
+				EC84FB1A3D8290DF2EF938B1449F6785 /* Pods */,
+				3B23B3344E45F70F90ED246985C10010 /* Products */,
+				6F2A2EF8165275926B54C1764A239A70 /* Targets Support Files */,
+			);
+			sourceTree = "<group>";
+		};
+		D5407AE4171C0C725577C145CE6D9201 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				FCB17AE2803A5996821F6B23E0BBE1CF /* .. */,
+			);
+			name = ..;
+			path = "../../../../../../../../flutter/.pub-cache/hosted/pub.dartlang.org/share-0.6.2/ios";
+			sourceTree = "<group>";
+		};
+		D7D93D857EDA76024B4AAD1ABD8213BC /* ios */ = {
+			isa = PBXGroup;
+			children = (
+				3C16A0B926206D392D88D46770D6621A /* .symlinks */,
+			);
+			name = ios;
+			path = ios;
+			sourceTree = "<group>";
+		};
+		D89477F20FB1DE18A04690586D7808C4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		DA99D823F476EEC16C2E8168F3CED8B4 /* cinemax */ = {
+			isa = PBXGroup;
+			children = (
+				168E3025425D7B097BAA6581872AA1C2 /* ios */,
+			);
+			name = cinemax;
+			path = cinemax;
+			sourceTree = "<group>";
+		};
+		DE418B8C9072ED2460BECAE104A667D3 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				75BB2AB581792EE470FC837E46A9771B /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		DF7DC3C95F3EACD7195992EFAAECB4C3 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				77BD726F9D9D9042DA6A747C2D6864D0 /* cinemax */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		E3C929BE6AC9955FDECEFEB72A07B17C /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				167435E2DB5C2AF9681E2141F26817E7 /* FlutterYoutubePlugin.h */,
+				2A8AFB6C23578CDE209C4D54F4271AF3 /* FlutterYoutubePlugin.m */,
+			);
+			name = Classes;
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		EC84FB1A3D8290DF2EF938B1449F6785 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				2E9FEB00D4787D40EF513121BA96DBE3 /* XCDYouTubeKit */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EED66C0EDC3EC1F21D664CF076C22DC9 /* youtube_player */ = {
+			isa = PBXGroup;
+			children = (
+				BD0F46048886A20C531DDA8BBD9BB490 /* ios */,
+			);
+			name = youtube_player;
+			path = youtube_player;
+			sourceTree = "<group>";
+		};
+		F4147E7199C301CC512F5083F0227BF8 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				A7F3FF11EF4FF6B67EFEAE846EDC192E /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FA7B36002F981A143A52C2A477422733 /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				A70718622910DB1B11C9516D9AA64961 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		FB77F19D1244715DA6AF2DC386440341 /* project */ = {
+			isa = PBXGroup;
+			children = (
+				DA99D823F476EEC16C2E8168F3CED8B4 /* cinemax */,
+			);
+			name = project;
+			path = project;
+			sourceTree = "<group>";
+		};
+		FCB17AE2803A5996821F6B23E0BBE1CF /* .. */ = {
+			isa = PBXGroup;
+			children = (
+				DE418B8C9072ED2460BECAE104A667D3 /* .. */,
+			);
+			name = ..;
+			path = ..;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		041243DBC0193AAE2F621464514ED1C8 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9564107E57CE0D1F038276F47FAC39A6 /* XCDYouTubeClient.h in Headers */,
+				2F730CDDA98E71A4178CD08DBC61B8FB /* XCDYouTubeDashManifestXML.h in Headers */,
+				57C9D8AD82D7F8476DB620B32061B948 /* XCDYouTubeError.h in Headers */,
+				D8F82F77B813C7357D85D04F2524FF73 /* XCDYouTubeKit.h in Headers */,
+				8A56957C8B064849F6648D45DACF57C7 /* XCDYouTubeLogger+Private.h in Headers */,
+				A00AB34071DE27309EA0C424BA996C80 /* XCDYouTubeLogger.h in Headers */,
+				B1358BA95F8D5FA0C763151C9F9C9877 /* XCDYouTubeOperation.h in Headers */,
+				202122827423A7298EF983BE33B73E69 /* XCDYouTubePlayerScript.h in Headers */,
+				C3258C3001B5A5CF19FCA5D6092DC461 /* XCDYouTubeVideo+Private.h in Headers */,
+				DFEF27E1DA2BC9996BC16CA4F5A5EBA7 /* XCDYouTubeVideo.h in Headers */,
+				AEAC5EFFC771D1E5F665AB6114B96023 /* XCDYouTubeVideoOperation.h in Headers */,
+				70E2C301E6A8D6534EEBB1AF4B11A413 /* XCDYouTubeVideoPlayerViewController.h in Headers */,
+				043D0BC64395DDD089B83613D8166ABD /* XCDYouTubeVideoWebpage.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		155B1016362B2040C0E2E578BE968052 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C164C07DE17B750EECA33FC4B3B971AA /* FlutterYoutubePlugin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3809D38D26435A099A8DC15B9CA0A8EA /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				08497A8861CC7AE348AD1CE0AFB721ED /* YoutubePlayerPlugin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		67B86FCE6F6A2C197454E429E7993D2A /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				986AE4220D0BB4C096C6D401265AB5B3 /* SharePlugin.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A9BF9AB28915D885930EFB0034756203 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		43071A9863A169BBDED5B44F5441E657 /* flutter_youtube */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4F1B779F654B21BE732121F09D4ABC85 /* Build configuration list for PBXNativeTarget "flutter_youtube" */;
+			buildPhases = (
+				155B1016362B2040C0E2E578BE968052 /* Headers */,
+				DF461A1F6506D30A04A1B9A651FC1DB7 /* Sources */,
+				78149F02AF2419E44CAD3E9C7F087F76 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				F55108696CD339E8E8149EF3A7557E7B /* PBXTargetDependency */,
+				F4B20163439844C36C3B317333DEA722 /* PBXTargetDependency */,
+			);
+			name = flutter_youtube;
+			productName = flutter_youtube;
+			productReference = 7D5186300A3C1747008E89E11C58BB0D /* libflutter_youtube.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		8B74B458B450D74B75744B87BD747314 /* Pods-Runner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8081AA1CD66F5566F60168D1D1961BB8 /* Build configuration list for PBXNativeTarget "Pods-Runner" */;
+			buildPhases = (
+				A9BF9AB28915D885930EFB0034756203 /* Headers */,
+				3F008028EFFD2834F7D022AADDEED978 /* Sources */,
+				9EA78434DC70E6F564E75BDE01313E29 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				979A2317C83B4DB16F994369998CFFFA /* PBXTargetDependency */,
+				AC70137696DEF338A7F906F20AF3A6D1 /* PBXTargetDependency */,
+				D21E1734A3CA42448B6021BD1A841B98 /* PBXTargetDependency */,
+				72D0CC83046EC64619A3F5637056C9FB /* PBXTargetDependency */,
+				EE101FE61BABC3696DDB6E350B726246 /* PBXTargetDependency */,
+			);
+			name = "Pods-Runner";
+			productName = "Pods-Runner";
+			productReference = 669E8F25E1897672BDB80B7EB784DA24 /* libPods-Runner.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AD61551ADB9F20B053F5368A2E332738 /* share */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = F574C0CEF4DED30EDD91151B7C79363A /* Build configuration list for PBXNativeTarget "share" */;
+			buildPhases = (
+				67B86FCE6F6A2C197454E429E7993D2A /* Headers */,
+				66A90EF863D45E0D026BA707FBEDFFA5 /* Sources */,
+				0DD2BA4985BE3040A7E45052A13C5CCC /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EF859920554EFE634493CFF0E698C123 /* PBXTargetDependency */,
+			);
+			name = share;
+			productName = share;
+			productReference = A1FAE194602965C35DF6F7EDAACC44FE /* libshare.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		BB8C0962B1BBD9CF1718299019B922E1 /* youtube_player */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 83DD53F280BE71732150E29F18C9253A /* Build configuration list for PBXNativeTarget "youtube_player" */;
+			buildPhases = (
+				3809D38D26435A099A8DC15B9CA0A8EA /* Headers */,
+				DE575CC73A7D709E6E7BB4B5C0B1CD12 /* Sources */,
+				45F7E606F93C19B9003FB28F750E0AA9 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				B12EDA5AE5C4EEDAF49CED36D50B0F61 /* PBXTargetDependency */,
+			);
+			name = youtube_player;
+			productName = youtube_player;
+			productReference = 1C99D4F6F23E574582C18A84CEF77F5F /* libyoutube_player.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		C60A0DC53D93FE007BCBC2589A5EE400 /* XCDYouTubeKit */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 49CB2CA51E4E35370B5323F1A89C296D /* Build configuration list for PBXNativeTarget "XCDYouTubeKit" */;
+			buildPhases = (
+				041243DBC0193AAE2F621464514ED1C8 /* Headers */,
+				FF2D518A2CF565B6BC72EC719A664650 /* Sources */,
+				9F61C3A1428B26CD486A1905148F9422 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XCDYouTubeKit;
+			productName = XCDYouTubeKit;
+			productReference = 842B7D6C4814D1257FF7380C8E0E4B92 /* libXCDYouTubeKit.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BFDFE7DC352907FC980B868725387E98 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+			};
+			buildConfigurationList = 4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CF1408CF629C7361332E53B88F7BD30C;
+			productRefGroup = 3B23B3344E45F70F90ED246985C10010 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */,
+				43071A9863A169BBDED5B44F5441E657 /* flutter_youtube */,
+				8B74B458B450D74B75744B87BD747314 /* Pods-Runner */,
+				AD61551ADB9F20B053F5368A2E332738 /* share */,
+				C60A0DC53D93FE007BCBC2589A5EE400 /* XCDYouTubeKit */,
+				BB8C0962B1BBD9CF1718299019B922E1 /* youtube_player */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3F008028EFFD2834F7D022AADDEED978 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AF8B49019D04A775867D53C859F8B918 /* Pods-Runner-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		66A90EF863D45E0D026BA707FBEDFFA5 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D790E5D8EE749F1EDE9BF07D18993F55 /* share-dummy.m in Sources */,
+				B8193E4DD24B1A523757A421FC374E9C /* SharePlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DE575CC73A7D709E6E7BB4B5C0B1CD12 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D2AA2CBE26B0BDFD6086E59A4CDDF253 /* youtube_player-dummy.m in Sources */,
+				F31E93DA2EBD9A9DDEF1AEBD12EF826A /* YoutubePlayerPlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DF461A1F6506D30A04A1B9A651FC1DB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE65F842EB030C95F3692F04009BD2FA /* flutter_youtube-dummy.m in Sources */,
+				7441F5AF3B99E632DE333978F7135664 /* FlutterYoutubePlugin.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FF2D518A2CF565B6BC72EC719A664650 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9A70CBB5ADE7113EF65C67AB91FF8340 /* XCDYouTubeClient.m in Sources */,
+				0D9B7927F83AE8095A09C477DFD91912 /* XCDYouTubeDashManifestXML.m in Sources */,
+				FC9EC5FADF34610BA1B397C1F1818D19 /* XCDYouTubeKit-dummy.m in Sources */,
+				25526B27A886B13D0F953F6B9605B260 /* XCDYouTubeLogger.m in Sources */,
+				1FD5E59AD16F11A67DBAD537D93CF0E9 /* XCDYouTubePlayerScript.m in Sources */,
+				3B33A3FB3EAF9F1CAC227D0BF8640DCB /* XCDYouTubeVideo.m in Sources */,
+				10A1A14DBE336AEF49DC0A663235CD0D /* XCDYouTubeVideoOperation.m in Sources */,
+				3E531BF67E4C5E161464CEC819BD4014 /* XCDYouTubeVideoPlayerViewController.m in Sources */,
+				301191E10F3D3D0249637ADC9FFEBFE2 /* XCDYouTubeVideoWebpage.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		72D0CC83046EC64619A3F5637056C9FB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = share;
+			target = AD61551ADB9F20B053F5368A2E332738 /* share */;
+			targetProxy = 5D3ADD2184C52D50ABFF68FC88D9881A /* PBXContainerItemProxy */;
+		};
+		979A2317C83B4DB16F994369998CFFFA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = 79C6D0DC06D5A16F2744011F8A034F44 /* PBXContainerItemProxy */;
+		};
+		AC70137696DEF338A7F906F20AF3A6D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XCDYouTubeKit;
+			target = C60A0DC53D93FE007BCBC2589A5EE400 /* XCDYouTubeKit */;
+			targetProxy = A74A4D20FC1566E34D5C4B693CB3246A /* PBXContainerItemProxy */;
+		};
+		B12EDA5AE5C4EEDAF49CED36D50B0F61 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = 8D1F9A84BCF28193DE0102AA28A33107 /* PBXContainerItemProxy */;
+		};
+		D21E1734A3CA42448B6021BD1A841B98 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = flutter_youtube;
+			target = 43071A9863A169BBDED5B44F5441E657 /* flutter_youtube */;
+			targetProxy = 6648D8D60305E2CB25D162D1FAA29204 /* PBXContainerItemProxy */;
+		};
+		EE101FE61BABC3696DDB6E350B726246 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = youtube_player;
+			target = BB8C0962B1BBD9CF1718299019B922E1 /* youtube_player */;
+			targetProxy = 6F545525B7D94F205F408946FDBFF304 /* PBXContainerItemProxy */;
+		};
+		EF859920554EFE634493CFF0E698C123 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = 8A88309D59E350B011221249C79A9668 /* PBXContainerItemProxy */;
+		};
+		F4B20163439844C36C3B317333DEA722 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = XCDYouTubeKit;
+			target = C60A0DC53D93FE007BCBC2589A5EE400 /* XCDYouTubeKit */;
+			targetProxy = 073BD33800F912401AA03874F2D78C84 /* PBXContainerItemProxy */;
+		};
+		F55108696CD339E8E8149EF3A7557E7B /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = Flutter;
+			target = 1EFDDC32A34D56D411E640A81DCD9E73 /* Flutter */;
+			targetProxy = D1892B7B2532E153FF4C5AC5245A5344 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		161DA6E208117D11FB258C65466A382B /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BABBF7D1F34BE226F74393A5A54741B /* youtube_player.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/youtube_player/youtube_player-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = youtube_player;
+				PRODUCT_NAME = youtube_player;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		1885F433808D5834887F2498B841917D /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F495DA89BF4DCC5B633B4E15D95128E6 /* share.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/share/share-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = share;
+				PRODUCT_NAME = share;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		4BE66A09A74FD25164AAB3C2645B9B93 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_RELEASE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Release;
+		};
+		526F53F576EFA6ACCB8C4FFEB75F1C7F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B3C9D3CFCF3FA7E3BB8B31D0E3B0DA40 /* Pods-Runner.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		5858D6C27EFF0C2FCD012AA1CB8682AF /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0A113FB984B721817152276C0053E3 /* Flutter.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		6DB88287FBF0DDC642169D4FE56485F2 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_PROFILE=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Profile;
+		};
+		7C95A14E0BB18C22AC2B0BCC6C1C0984 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0A113FB984B721817152276C0053E3 /* Flutter.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7EF7227D9B20A1D549000096ACCB23D7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"POD_CONFIGURATION_DEBUG=1",
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				STRIP_INSTALLED_PRODUCT = NO;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				SYMROOT = "${SRCROOT}/../build";
+			};
+			name = Debug;
+		};
+		80FC257FA0A8114D1A1729D2532A6179 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = E5ABAE8C92A5056077FF6F02481D7B6C /* Pods-Runner.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		87E9F1DF827CD15C0AD5AAA4A2468D8A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B88B918893948E5E894C4A7A4BD7DAC5 /* XCDYouTubeKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = XCDYouTubeKit;
+				PRODUCT_NAME = XCDYouTubeKit;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		891715F9E98F7FBAD36822130720918C /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B88B918893948E5E894C4A7A4BD7DAC5 /* XCDYouTubeKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = XCDYouTubeKit;
+				PRODUCT_NAME = XCDYouTubeKit;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		8F54A31B3D289F3026335AB897F41C0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F495DA89BF4DCC5B633B4E15D95128E6 /* share.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/share/share-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = share;
+				PRODUCT_NAME = share;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		963F1325F22AD33C29A66773A75A5017 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D82B680EFAA619631FD37A7093EA730D /* flutter_youtube.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/flutter_youtube/flutter_youtube-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = flutter_youtube;
+				PRODUCT_NAME = flutter_youtube;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		993E16E5A9D0C93A15F81C62114B3039 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BABBF7D1F34BE226F74393A5A54741B /* youtube_player.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/youtube_player/youtube_player-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = youtube_player;
+				PRODUCT_NAME = youtube_player;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		9C73B47770A23E96066F108B97765C79 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D82B680EFAA619631FD37A7093EA730D /* flutter_youtube.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/flutter_youtube/flutter_youtube-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = flutter_youtube;
+				PRODUCT_NAME = flutter_youtube;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		ABB3D796EFAED9695930675712DFBA94 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BABBF7D1F34BE226F74393A5A54741B /* youtube_player.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/youtube_player/youtube_player-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = youtube_player;
+				PRODUCT_NAME = youtube_player;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BBDD66A912F450FEEC7E08A8875D0069 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B88B918893948E5E894C4A7A4BD7DAC5 /* XCDYouTubeKit.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/XCDYouTubeKit/XCDYouTubeKit-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = XCDYouTubeKit;
+				PRODUCT_NAME = XCDYouTubeKit;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		BCC2AD7C6D1C6BF51924B04A17926544 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CF0A113FB984B721817152276C0053E3 /* Flutter.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DC307F0A63030EEC0C412BDC30631778 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = F495DA89BF4DCC5B633B4E15D95128E6 /* share.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/share/share-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = share;
+				PRODUCT_NAME = share;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E1CB3076DC7D3F11C96B61F2D946A9F1 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DF0AF5474C02B0E1B187AA8DC4AE41BC /* Pods-Runner.profile.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MACH_O_TYPE = staticlib;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+		E3FABA9E99217AA0A4B4DEB3CBB3A8B0 /* Profile */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D82B680EFAA619631FD37A7093EA730D /* flutter_youtube.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				ENABLE_BITCODE = NO;
+				GCC_PREFIX_HEADER = "Target Support Files/flutter_youtube/flutter_youtube-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_MODULE_NAME = flutter_youtube;
+				PRODUCT_NAME = flutter_youtube;
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Profile;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4821239608C13582E20E6DA73FD5F1F9 /* Build configuration list for PBXProject "Pods" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7EF7227D9B20A1D549000096ACCB23D7 /* Debug */,
+				6DB88287FBF0DDC642169D4FE56485F2 /* Profile */,
+				4BE66A09A74FD25164AAB3C2645B9B93 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		49CB2CA51E4E35370B5323F1A89C296D /* Build configuration list for PBXNativeTarget "XCDYouTubeKit" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				87E9F1DF827CD15C0AD5AAA4A2468D8A /* Debug */,
+				891715F9E98F7FBAD36822130720918C /* Profile */,
+				BBDD66A912F450FEEC7E08A8875D0069 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4F1B779F654B21BE732121F09D4ABC85 /* Build configuration list for PBXNativeTarget "flutter_youtube" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				9C73B47770A23E96066F108B97765C79 /* Debug */,
+				E3FABA9E99217AA0A4B4DEB3CBB3A8B0 /* Profile */,
+				963F1325F22AD33C29A66773A75A5017 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8081AA1CD66F5566F60168D1D1961BB8 /* Build configuration list for PBXNativeTarget "Pods-Runner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				526F53F576EFA6ACCB8C4FFEB75F1C7F /* Debug */,
+				E1CB3076DC7D3F11C96B61F2D946A9F1 /* Profile */,
+				80FC257FA0A8114D1A1729D2532A6179 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83DD53F280BE71732150E29F18C9253A /* Build configuration list for PBXNativeTarget "youtube_player" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ABB3D796EFAED9695930675712DFBA94 /* Debug */,
+				161DA6E208117D11FB258C65466A382B /* Profile */,
+				993E16E5A9D0C93A15F81C62114B3039 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94078A06C17E946ADC1F2C06726219E5 /* Build configuration list for PBXAggregateTarget "Flutter" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BCC2AD7C6D1C6BF51924B04A17926544 /* Debug */,
+				5858D6C27EFF0C2FCD012AA1CB8682AF /* Profile */,
+				7C95A14E0BB18C22AC2B0BCC6C1C0984 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		F574C0CEF4DED30EDD91151B7C79363A /* Build configuration list for PBXNativeTarget "share" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DC307F0A63030EEC0C412BDC30631778 /* Debug */,
+				1885F433808D5834887F2498B841917D /* Profile */,
+				8F54A31B3D289F3026335AB897F41C0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BFDFE7DC352907FC980B868725387E98 /* Project object */;
+}

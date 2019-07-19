@@ -53,6 +53,11 @@ class MovieListScreenState extends State<MovieListScreen> {
             movieUrl = kTopRatedMovieUrl;
           }
           break;
+        case MovieListType.Trending:
+          {
+            movieUrl = kTrendingMovieUrl;
+          }
+          break;
       }
       var data = await MovieServices().getMovieList(movieUrl, pageNo);
       Movies list = Movies.fromJson(data);

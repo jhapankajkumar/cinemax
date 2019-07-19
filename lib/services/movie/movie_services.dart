@@ -24,4 +24,9 @@ class MovieServices {
     http.Response genereData = await http.get(url);
     return genereData.body;
   }
+
+  Future getMovieGenreList() async {
+    http.Response genereData = await http.get(kGenereMovieUrl);
+    return genereData.body;
+  }
 }
