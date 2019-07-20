@@ -110,11 +110,11 @@ class MovieListScreenState extends State<MovieListScreen> {
     } else {
       print('Movie Lenght ${movieList.length}');
       int rowCount = 0;
-      if (movieList.length % 3 == 0){
-          rowCount = movieList.length ~/ 3;
+      if (movieList.length % 2 == 0){
+          rowCount = movieList.length ~/ 2;
       }
       else {
-        rowCount = movieList.length ~/ 3 + 1;
+        rowCount = movieList.length ~/ 2 + 1;
       }
       print("Row Count: $rowCount");
       component = Container(

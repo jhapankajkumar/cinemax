@@ -1,6 +1,7 @@
 import 'dart:io' show Platform;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:smooth_star_rating/smooth_star_rating.dart';
 
 Widget loadingIndicator() {
   Widget indicator;
@@ -46,4 +47,15 @@ String getTextForEnum(MovieListType type) {
     default:
       return '';
   }
+}
+
+Widget buildRating(double voteAverage) {
+  return SmoothStarRating(
+      allowHalfRating: false,
+      starCount: 5,
+      rating: voteAverage / 2,
+      size: 15.0,
+      color: Colors.yellow,
+      borderColor: Colors.yellow,
+      spacing: 1.0);
 }

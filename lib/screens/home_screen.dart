@@ -7,7 +7,9 @@ import 'package:cinemax/screens/movie_list_screen.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/url_constant.dart';
 import 'package:cinemax/util/utility_helper.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -45,11 +47,12 @@ class _HomeScreenState extends State<HomeScreen> {
 
   _getGenrelist() async {
     var data = await MovieServices().getMovieGenreList();
-          Genres list = Genres.fromJson(data);
-          setState(() {
-            genreList = list.genres;
-          });
+    Genres list = Genres.fromJson(data);
+    setState(() {
+      genreList = list.genres;
+    });
   }
+
   _getMovieListOfType(MovieListType type) async {
     switch (type) {
       case MovieListType.NowPaying:
@@ -112,7 +115,7 @@ class _HomeScreenState extends State<HomeScreen> {
         upcomingList == null &&
         popularList == null &&
         topRatedList == null &&
-         trendingList == null) {
+        trendingList == null) {
       return true;
     } else {
       return false;
@@ -122,41 +125,42 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        drawer: Menu(genres: genreList,),
-        appBar:
-         AppBar( 
+        drawer: Menu(
+          genres: genreList,
+        ),
+        appBar: AppBar(
           title: Text(widget.title),
           actions: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(right: 10),
-                child: Icon(Icons.search),
-              )
-            ],
+            Padding(
+              padding: const EdgeInsets.only(right: 10),
+              child: Icon(Icons.search),
+            )
+          ],
         ),
         body: shouldShowLoading()
-            ? Center(
-                child: CircularProgressIndicator(),
-              )
+            ? loadingIndicator()
             : SingleChildScrollView(
                 scrollDirection: Axis.vertical,
                 child: Container(
                   child: Column(
                     children: <Widget>[
-                      trendingList != null ? Container(
-                        height: 300,
-                        child: PageView.builder(
-                          physics: BouncingScrollPhysics(),
-                          scrollDirection: Axis.horizontal,
-                          pageSnapping: true,
-                          controller: pageController,
-                          onPageChanged: (currentPage) {},
-                          itemCount: trendingList.length,
-                          itemBuilder: (context, index) {
-                            return _buildPageViewContent(
-                                context, trendingList[index]);
-                          },
-                        ),
-                      ): Container(),
+                      trendingList != null
+                          ? Container(
+                              height: 300,
+                              child: PageView.builder(
+                                physics: BouncingScrollPhysics(),
+                                scrollDirection: Axis.horizontal,
+                                pageSnapping: true,
+                                controller: pageController,
+                                onPageChanged: (currentPage) {},
+                                itemCount: trendingList.length,
+                                itemBuilder: (context, index) {
+                                  return _buildPageViewContent(
+                                      context, trendingList[index]);
+                                },
+                              ),
+                            )
+                          : Container(),
                       SizedBox(
                         height: 20,
                       ),
@@ -187,15 +191,15 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget appBar () {
+Widget appBar() {
   return SliverAppBar(
-      automaticallyImplyLeading: false,
-      pinned: true,
-      expandedHeight: 250.0,
-      flexibleSpace: FlexibleSpaceBar(
-        title: Text('Demo'),
-      ),
-    );
+    automaticallyImplyLeading: false,
+    pinned: true,
+    expandedHeight: 250.0,
+    flexibleSpace: FlexibleSpaceBar(
+      title: Text('Demo'),
+    ),
+  );
 }
 
 Widget _buildPageViewContent(BuildContext context, Movie movie) {
@@ -293,7 +297,7 @@ Widget _buildMovieList(
         height: 10,
       ),
       Container(
-        height: 240,
+        height: 280,
         child: ListView.builder(
           scrollDirection: Axis.horizontal,
           itemCount: movies.length,
@@ -317,6 +321,7 @@ Widget buildCard(Movie movie, BuildContext context) {
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0.0),
       child: Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           ClipRRect(
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
@@ -355,25 +360,47 @@ Widget buildCard(Movie movie, BuildContext context) {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
                       Flexible(
-                        child: Text(
-                          movie.title,
-                          style: TextStyle(
-                            fontWeight: FontWeight.normal,
-                            fontSize: 14.0,
-                            color: Colors.white,
-                          ),
-                          // maxLines: 3,
-                          // textAlign: TextAlign.left,
-                        ),
+                        child: buildRating(movie.voteAverage),
                       ),
+                      Text(
+                        '${movie.voteAverage}/10',
+                        style: TextStyle(
+                            fontSize: 16.0, fontWeight: FontWeight.bold),
+                      )
                     ],
                   ),
                 )
               ],
             ),
           ),
+          SizedBox(
+            height: 5,
+          ),
+          Container(
+            width: 160,
+            child: Text(
+              movie.title,
+              style: TextStyle(
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+              textAlign: TextAlign.left,
+              softWrap: false,
+              overflow: TextOverflow.fade,
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          Text(movie.releaseDate.year.toString(),
+              style: TextStyle(
+                  fontSize: 14.0,
+                  fontWeight: FontWeight.normal,
+                  color: Colors.grey))
         ],
       ),
     ),
   );
 }
+
+
