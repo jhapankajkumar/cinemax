@@ -1,4 +1,5 @@
 import 'dart:io' show Platform;
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
@@ -11,7 +12,9 @@ Widget loadingIndicator() {
     );
   } else if (Platform.isIOS) {
     indicator =  Center(
-      child: CupertinoActivityIndicator(),
+      child: CupertinoActivityIndicator(
+        radius: 20,
+      ),
     );
   }
   return indicator;
@@ -58,4 +61,21 @@ Widget buildRating(double voteAverage) {
       color: Colors.yellow,
       borderColor: Colors.yellow,
       spacing: 1.0);
+}
+
+Widget getNeworkImage(String imagePath) {
+  return CachedNetworkImage(
+  imageUrl: imagePath,
+  imageBuilder: (context, imageProvider) => Container(
+    decoration: BoxDecoration(
+      image: DecorationImage(
+          image: imageProvider,
+          fit: BoxFit.cover,
+      ),
+    ),
+  ),
+  placeholder: (context, url) => loadingIndicator(),
+  errorWidget: (context, url, error) =>  Image.asset('assets/images/placeholder.jpg',
+  fit: BoxFit.cover,),
+);
 }

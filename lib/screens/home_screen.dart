@@ -1,15 +1,14 @@
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movies.dart';
+import 'package:cinemax/screens/base_home_screen.dart';
 import 'package:cinemax/screens/detail/movie_detail_screen.dart';
-import 'package:cinemax/screens/menu.dart';
 import 'package:cinemax/screens/movie_list_screen.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/url_constant.dart';
 import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -124,12 +123,78 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        drawer: Menu(
-          genres: genreList,
-        ),
+    return BaseHomeScreen(
         appBar: AppBar(
-          title: Text(widget.title),
+          title: Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                // IconButton(
+                //     icon: Container(
+                //       height: 30.0,
+                //       width: 30.0,
+                //       decoration: BoxDecoration(
+                //         color: appTheme.accentColor,
+                //         shape: BoxShape.circle,
+                //       ),
+                //       child: Center(
+                //         child: Icon(
+                //           // expandFlag
+                //           //     ? Icons.keyboard_arrow_up
+                //           Icons.keyboard_arrow_down,
+                //           color: Colors.white,
+                //           size: 20.0,
+                //         ),
+                //       ),
+                //     ),
+                //     onPressed: () {
+                //       Navigator.push(context,
+                //           MaterialPageRoute(builder: (BuildContext context) {
+                //         return MoreMore(
+                //             child: ListView.builder(
+                //           itemBuilder: (BuildContext context, int index) {
+                //             return Container(
+                //               decoration: BoxDecoration(
+                //                   border: Border(
+                //                     top: BorderSide(
+                //                       color: appTheme.accentColor,
+                //                       width: 1.0,
+                //                     ),
+                //                     bottom: BorderSide(
+                //                       color: appTheme.accentColor,
+                //                       width: 1.0,
+                //                     ),
+                //                   ),
+                //                   color: Colors.transparent),
+                //               child: ListTile(
+                //                 onTap: () {
+                //                   // setState(() {
+                //                   //   selectedIndex = index;
+                //                   // });
+                //                 },
+                //                 title: Text(
+                //                   genreList[index].name,
+                //                   style: TextStyle(
+                //                       fontWeight: FontWeight.bold,
+                //                       color: Colors.white),
+                //                 ),
+                //               ),
+                //             );
+                //           },
+                //           itemCount: genreList.length,
+                //         ));
+                //       }));
+                //     }),
+              ],
+            ),
+          ),
           actions: <Widget>[
             Padding(
               padding: const EdgeInsets.only(right: 10),
@@ -191,16 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
   }
 }
 
-Widget appBar() {
-  return SliverAppBar(
-    automaticallyImplyLeading: false,
-    pinned: true,
-    expandedHeight: 250.0,
-    flexibleSpace: FlexibleSpaceBar(
-      title: Text('Demo'),
-    ),
-  );
-}
+
 
 Widget _buildPageViewContent(BuildContext context, Movie movie) {
   return Stack(children: <Widget>[
@@ -213,11 +269,8 @@ Widget _buildPageViewContent(BuildContext context, Movie movie) {
       },
       child: Container(
         height: 300,
-        child: FadeInImage.assetNetwork(
-            image:
-                '${kPosterImageBaseUrl}w500/${movie.backdropPath ?? movie.posterPath}',
-            placeholder: 'assets/images/loading.gif',
-            fit: BoxFit.cover),
+        child: getNeworkImage(
+            '${kPosterImageBaseUrl}w500/${movie.backdropPath ?? movie.posterPath}'),
       ),
     ),
     Positioned(
@@ -330,10 +383,8 @@ Widget buildCard(Movie movie, BuildContext context) {
                 Container(
                   width: 160,
                   height: 210,
-                  child: FadeInImage.assetNetwork(
-                      image: '${kPosterImageBaseUrl}w185/${movie.posterPath}',
-                      placeholder: 'assets/images/loading.gif',
-                      fit: BoxFit.cover),
+                  child: getNeworkImage(
+                      '${kPosterImageBaseUrl}w185/${movie.posterPath}'),
                 ),
                 Positioned(
                   left: 0,
@@ -402,5 +453,3 @@ Widget buildCard(Movie movie, BuildContext context) {
     ),
   );
 }
-
-

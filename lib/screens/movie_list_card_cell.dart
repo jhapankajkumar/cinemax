@@ -54,10 +54,7 @@ Widget cardWidget(Movie movie, int index, BuildContext context, Function cardDid
               Container(
                 width: cardWidht,
                 height: 250,
-                child: FadeInImage.assetNetwork(
-                    image: '${kPosterImageBaseUrl}w500/${movie.posterPath ?? movie.backdropPath}',
-                    placeholder: 'assets/images/loading.gif',
-                    fit: BoxFit.cover),
+                child: getNeworkImage('${kPosterImageBaseUrl}w500/${movie.posterPath ?? movie.backdropPath}')  
               ),
               Positioned(
                 left: 0,

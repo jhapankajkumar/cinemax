@@ -1,100 +1,188 @@
 import 'package:cinemax/data/genres.dart';
+import 'package:cinemax/util/constant.dart';
 import 'package:flutter/material.dart';
 
 class Menu extends StatelessWidget {
   final List<Genre> genres;
+  final int selectedIndex;
+  final Function selectionCallback;
 
-  const Menu({Key key, this.genres}) : super(key: key);
+  
+  const Menu({Key key, this.genres, this.selectedIndex, this.selectionCallback}) : super(key: key);
   @override
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 1,
-      child:  Column(
-        children: <Widget>[
-          PreferredSize(
-            preferredSize: Size.fromHeight(50.0),
-            child: AppBar(
-              title: Text("Genre"),
-              automaticallyImplyLeading: false,
-            ),
-          ),
-          Container(
-            // color: Colors.green,
-            child: Expanded(
-              child: ListView.builder(
-                scrollDirection: Axis.vertical,
-                itemCount: genres.length,
-                itemBuilder: (context, index) {
-                  return Column(
-                    children: <Widget>[
-                      ListTile(
-                        title: Text(genres[index].name),
-                        onTap: () {
-                          Navigator.pop(context);
-                          // Navigator.push(
-                          //     context,
-                          //     MaterialPageRoute(
-                          //         builder: (BuildContext context) => ManageProduct()));
-                        },
-                      ),
-                      Divider(
-                        height: 3,
-                        color: Colors.grey,
-                      )
-                    ],
-                  );
+
+      child: ListView.builder(
+        itemBuilder: (BuildContext context, int index) {
+          if (index == 0) {
+            return Container(
+              decoration: BoxDecoration(
+                border: Border(
+                  bottom: BorderSide(
+                    color: appTheme.accentColor,
+                    width: 1.0,
+                  ),
+                ),
+              ),
+              child: ListTile(
+                title: Text(
+                  'Home',
+                  style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
+                ),
+                onTap: () {
+                  selectionCallback(-1, context);
                 },
               ),
+            );
+          }
+          return ExpandableListView(
+            title: "Genre",
+            genres: genres,
+            selectionCallback: selectionCallback,
+            selectedIndex: selectedIndex,
+          );
+        },
+        itemCount: 2,
+      ), //_customeScrollView(context),
+    );
+  }
+}
+
+class ExpandableListView extends StatefulWidget {
+  final String title;
+  final List<Genre> genres;
+  final Function selectionCallback;
+  final int selectedIndex;
+
+
+  const ExpandableListView({Key key, this.title, this.genres, this.selectionCallback, this.selectedIndex})
+      : super(key: key);
+
+  @override
+  _ExpandableListViewState createState() => _ExpandableListViewState();
+}
+
+class _ExpandableListViewState extends State<ExpandableListView> {
+  bool expandFlag = true;
+  
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 1.0),
+      child: Column(
+        children: <Widget>[
+          Container(
+            height: 50,
+            padding: EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  widget.title,
+                  style: TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white),
+                ),
+                // IconButton(
+                //     icon: Container(
+                //       height: 50.0,
+                //       width: 50.0,
+                //       decoration: BoxDecoration(
+                //         color: appTheme.accentColor,
+                //         shape: BoxShape.circle,
+                //       ),
+                //       child: Center(
+                //         child: Icon(
+                //           expandFlag
+                //               ? Icons.keyboard_arrow_up
+                //               : Icons.keyboard_arrow_down,
+                //           color: Colors.white,
+                //           size: 30.0,
+                //         ),
+                //       ),
+                //     ),
+                //     onPressed: () {
+                //       setState(() {
+                //         expandFlag = !expandFlag;
+                //       });
+                //     }),
+              ],
             ),
           ),
+          ExpandableContainer(
+              expanded: expandFlag,
+              child: ListView.builder(
+                itemBuilder: (BuildContext context, int index) {
+                  return Container(
+                    decoration: BoxDecoration(
+                        border: Border(
+                          top: BorderSide(
+                            color: appTheme.accentColor,
+                            width: 1.0,
+                          ),
+                          bottom: BorderSide(
+                            color: appTheme.accentColor,
+                            width: 1.0,
+                          ),
+                        ),
+                        color: Color.fromARGB(255, 40, 40, 40)),
+                    child: ListTile(
+                      onTap: (){
+                        
+                        setState(() {
+                          if (widget.selectedIndex != index){
+                            widget.selectionCallback(index, context);
+                          }
+
+                        });
+                      },
+                      title: Text(
+                        widget.genres[index].name,
+                        style: TextStyle(
+                            fontWeight: FontWeight.bold, color: widget.selectedIndex == index ? Colors.blue : Colors.white
+                            ),
+                      ),
+                    ),
+                  );
+                },
+                itemCount: widget.genres.length,
+              ))
         ],
       ),
     );
   }
 }
 
-Widget scrollView()
-{
-  return CustomScrollView(
-  slivers: <Widget>[
-     SliverAppBar(
-      automaticallyImplyLeading: false,
-      pinned: true,
-      expandedHeight: 250.0,
-      flexibleSpace: FlexibleSpaceBar(
-        title: Text('Demo'),
+class ExpandableContainer extends StatelessWidget {
+  final bool expanded;
+  final double collapsedHeight;
+  final double expandedHeight;
+  final Widget child;
+
+  ExpandableContainer({
+    @required this.child,
+    this.collapsedHeight = 0.0,
+    this.expandedHeight = 500.0,
+    this.expanded = true,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    return AnimatedContainer(
+      duration: Duration(milliseconds: 500),
+      curve: Curves.easeInOut,
+      width: screenWidth,
+      height: MediaQuery.of(context).size.height-200,
+      child: Container(
+        child: child,
+        decoration: BoxDecoration(
+            border: Border.all(width: 1.0, color: Colors.transparent)),
       ),
-    ),
-    SliverGrid(
-      gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
-        maxCrossAxisExtent: 200.0,
-        mainAxisSpacing: 10.0,
-        crossAxisSpacing: 10.0,
-        childAspectRatio: 4.0,
-      ),
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          return Container(
-            alignment: Alignment.center,
-            color: Colors.teal[100 * (index % 9)],
-            child: Text('grid item $index'),
-          );
-        },
-        childCount: 20,
-      ),
-    ),
-    SliverFixedExtentList(
-      itemExtent: 50.0,
-      delegate: SliverChildBuilderDelegate(
-        (BuildContext context, int index) {
-          return Container(
-            alignment: Alignment.center,
-            color: Colors.lightBlue[100 * (index % 9)],
-            child: Text('list item $index'),
-          );
-        },
-      ),
-    ),
-  ],
-);
+    );
+  }
 }
+

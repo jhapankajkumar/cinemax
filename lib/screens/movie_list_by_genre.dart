@@ -1,6 +1,7 @@
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movies.dart';
+import 'package:cinemax/screens/base_home_screen.dart';
 import 'package:cinemax/screens/detail/movie_detail_screen.dart';
 import 'package:cinemax/screens/movie_list_card_cell.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
@@ -52,7 +53,7 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
     if (widget.genre != null) {
       title = widget.genre.name;
     }
-    return Scaffold(
+    return BaseHomeScreen(
       appBar: AppBar(
         title: Text(title),
       ),
@@ -89,6 +90,7 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
       }
       print("Row Count: $rowCount");
       component = Container(
+        padding: EdgeInsets.symmetric(vertical: 10),
         height: MediaQuery.of(context).size.height,
         child: ListView.builder(
           scrollDirection: Axis.vertical,
