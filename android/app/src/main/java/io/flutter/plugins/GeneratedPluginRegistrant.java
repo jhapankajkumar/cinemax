@@ -1,6 +1,7 @@
 package io.flutter.plugins;
 
 import io.flutter.plugin.common.PluginRegistry;
+import com.hoanglm.flutteryoutubeview.FlutterYoutubeViewPlugin;
 import io.flutter.plugins.pathprovider.PathProviderPlugin;
 import com.tekartik.sqflite.SqflitePlugin;
 import io.flutter.plugins.webviewflutter.WebViewFlutterPlugin;
@@ -13,6 +14,7 @@ public final class GeneratedPluginRegistrant {
     if (alreadyRegisteredWith(registry)) {
       return;
     }
+    FlutterYoutubeViewPlugin.registerWith(registry.registrarFor("com.hoanglm.flutteryoutubeview.FlutterYoutubeViewPlugin"));
     PathProviderPlugin.registerWith(registry.registrarFor("io.flutter.plugins.pathprovider.PathProviderPlugin"));
     SqflitePlugin.registerWith(registry.registrarFor("com.tekartik.sqflite.SqflitePlugin"));
     WebViewFlutterPlugin.registerWith(registry.registrarFor("io.flutter.plugins.webviewflutter.WebViewFlutterPlugin"));

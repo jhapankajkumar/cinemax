@@ -6,7 +6,6 @@ import 'dart:convert';
 
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/image/images.dart';
-import 'package:cinemax/data/video/videos.dart';
 
 class MovieDetail {
     bool adult;
@@ -78,7 +77,7 @@ class MovieDetail {
         overview: json["overview"] == null ? null : json["overview"],
         popularity: json["popularity"] == null ? null : json["popularity"].toDouble(),
         posterPath: json["poster_path"] == null ? null : json["poster_path"],
-        releaseDate: json["release_date"] == null ? null : DateTime.parse(json["release_date"]),
+        releaseDate: json["release_date"] == null ? null : (json["release_date"].toString().length == 0 ? DateTime.now() : DateTime.parse(json["release_date"])),
         revenue: json["revenue"] == null ? null : json["revenue"],
         runtime: json["runtime"] == null ? null : json["runtime"],
         status: json["status"] == null ? null : json["status"],

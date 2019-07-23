@@ -58,4 +58,11 @@ class MovieServices {
     http.Response genereData = await http.get(url);
     return genereData.body;
   }
+
+  Future getSearchListFromText(String text, int pageNo) async {
+    String url = getSearchUrl(text, pageNo);
+    print(url);
+    http.Response genereData = await http.get(url);
+    return genereData.body;
+  }
 }

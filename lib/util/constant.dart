@@ -15,3 +15,8 @@ class SharedDataManager {
   fontFamily: 'Oxygen',
   brightness: Brightness.dark
 );
+
+TextStyle titleStyle = TextStyle(
+                      fontSize: 18.0,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.white);

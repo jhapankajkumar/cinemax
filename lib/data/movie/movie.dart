@@ -33,10 +33,11 @@ class Movie {
     });
 
     factory Movie.fromJson(String str) => Movie.fromMap(json.decode(str));
-
+    
     String toJson() => json.encode(toMap());
 
-    factory Movie.fromMap(Map<String, dynamic> json) =>  Movie(
+    factory Movie.fromMap(Map<String, dynamic> json) { 
+      return Movie(
         voteCount: json["vote_count"] == null ? null : json["vote_count"],
         id: json["id"] == null ? null : json["id"],
         video: json["video"] == null ? null : json["video"],
@@ -50,8 +51,9 @@ class Movie {
         backdropPath: json["backdrop_path"] == null ? null : json["backdrop_path"],
         adult: json["adult"] == null ? null : json["adult"],
         overview: json["overview"] == null ? null : json["overview"],
-        releaseDate: json["release_date"] == null ? null : DateTime.parse(json["release_date"]),
+        releaseDate: json["release_date"] == null  ? null : (json["release_date"].toString().length == 0 ? DateTime.now() : DateTime.parse(json["release_date"])),
     );
+    }  
 
     Map<String, dynamic> toMap() => {
         "vote_count": voteCount == null ? null : voteCount,

@@ -64,5 +64,10 @@ String getMovieUrlWithGenre(int genreId, int pageNo) {
   return url;
 }
 
+String getSearchUrl(String text, int pageNo) {
+  var url =  '$kBaseUrl/search/movie?api_key=$kApiKey&language=en-US&query=$text&page=$pageNo&include_adult=false';
+  return url;
+}
+
 
 //a33b1787ab28a5b8ed06cfda0668ca5a40e77379
