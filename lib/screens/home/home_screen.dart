@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movies.dart';
@@ -11,6 +13,7 @@ import 'package:cinemax/util/url_constant.dart';
 import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class HomeScreen extends StatefulWidget {
   HomeScreen({Key key, this.title}) : super(key: key);
@@ -22,105 +25,143 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  int requestCount = 0;
   List<Movie> nowPlaying;
   List<Movie> popularList;
   List<Movie> upcomingList;
   List<Movie> topRatedList;
   List<Genre> genreList;
   List<Movie> trendingList;
+  RefreshController _refreshController;
 
-  PageController pageController;
   int currentPage;
   @override
   void initState() {
-    _getGenrelist();
-    _getMovieListOfType(MovieListType.NowPaying);
-    _getMovieListOfType(MovieListType.Upcoming);
-    _getMovieListOfType(MovieListType.Popular);
-    _getMovieListOfType(MovieListType.Trending);
-    _getMovieListOfType(MovieListType.TopRated);
-    pageController = PageController();
-    pageController.addListener(() {
-      // print(pageController.page);
-    });
+    requestCount = 0;
+    _refreshController = RefreshController();
+    _refresh();
     super.initState();
   }
 
-  _getGenrelist() async {
-    var data = await MovieServices().getMovieGenreList();
-    Genres list = Genres.fromJson(data);
-    setState(() {
-      genreList = list.genres;
-    });
-  }
-
   _getMovieListOfType(MovieListType type) async {
+    requestCount += 1;
     switch (type) {
       case MovieListType.NowPaying:
         {
-          var data = await MovieServices().getMovieList(kNowPaylingMovieUrl, 1);
-          Movies list = Movies.fromJson(data);
-          setState(() {
-            nowPlaying = list.results;
+          await MovieServices()
+              .fetchMovieList(kNowPaylingMovieUrl, 1)
+              .then((movies) {
+            requestCount -= 1;
+
+            setState(() {
+              nowPlaying = movies.results;
+            });
+          }).catchError((onError) {
+            setState(() {
+              requestCount -= 1;
+            });
           });
         }
 
         break;
       case MovieListType.Upcoming:
         {
-          var data = await MovieServices().getMovieList(kUpcomingMovieUrl, 1);
-          Movies list = Movies.fromJson(data);
-          setState(() {
-            upcomingList = list.results;
+          await MovieServices()
+              .fetchMovieList(kUpcomingMovieUrl, 1)
+              .then((movies) {
+            requestCount -= 1;
+
+            setState(() {
+              upcomingList = movies.results;
+            });
+          }).catchError((onError) {
+            setState(() {
+              requestCount -= 1;
+            });
           });
         }
         break;
 
       case MovieListType.Trending:
         {
-          var data = await MovieServices().getMovieList(kTrendingMovieUrl, 1);
-          Movies list = Movies.fromJson(data);
-          setState(() {
-            trendingList = list.results;
+          await MovieServices()
+              .fetchMovieList(kTrendingMovieUrl, 1)
+              .then((movies) {
+            requestCount -= 1;
+            setState(() {
+              trendingList = movies.results;
+            });
+          }).catchError((onError) {
+            setState(() {
+              requestCount -= 1;
+            });
           });
         }
         break;
 
       case MovieListType.Popular:
         {
-          var data = await MovieServices().getMovieList(kPopularMovieUrl, 1);
-          Movies list = Movies.fromJson(data);
-          setState(() {
-            popularList = list.results;
+          await MovieServices()
+              .fetchMovieList(kPopularMovieUrl, 1)
+              .then((movies) {
+            requestCount -= 1;
+            setState(() {
+              popularList = movies.results;
+            });
+          }).catchError((onError) {
+            setState(() {
+              requestCount -= 1;
+            });
           });
         }
         break;
 
       case MovieListType.TopRated:
         {
-          var data = await MovieServices().getMovieList(kTopRatedMovieUrl, 1);
-          Movies list = Movies.fromJson(data);
-          setState(() {
-            topRatedList = list.results;
+          await MovieServices()
+              .fetchMovieList(kTopRatedMovieUrl, 1)
+              .then((movies) {
+            requestCount -= 1;
+
+            setState(() {
+              topRatedList = movies.results;
+            });
+          }).catchError((onError) {
+            setState(() {
+              requestCount -= 1;
+            });
           });
         }
         break;
-
-      default:
-        return '';
     }
+    
   }
 
   bool shouldShowLoading() {
-    if (nowPlaying == null &&
-        upcomingList == null &&
-        popularList == null &&
-        topRatedList == null &&
-        trendingList == null) {
-      return true;
-    } else {
+    if (requestCount == 0) {
       return false;
     }
+
+    print('SHOULD LOADING CALLED');
+    if (nowPlaying != null ||
+        upcomingList != null ||
+        popularList != null ||
+        topRatedList != null ||
+        trendingList != null) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  _refresh() {
+    requestCount = 0;
+    _getMovieListOfType(MovieListType.NowPaying);
+    _getMovieListOfType(MovieListType.Upcoming);
+    _getMovieListOfType(MovieListType.Popular);
+    _getMovieListOfType(MovieListType.Trending);
+    _getMovieListOfType(MovieListType.TopRated);
+    _refreshController.refreshCompleted();
   }
 
   @override
@@ -196,87 +237,118 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
           actions: <Widget>[
             Padding(
-              padding: const EdgeInsets.only(right: 10),
-              child: IconButton(
-                icon: Icon(Icons.search, color: Colors.white,),
-                onPressed: (){
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context){
-                    return SearchMovie();
-                  }));
-                },
-              )
-            )
+                padding: const EdgeInsets.only(right: 10),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    color: Colors.white,
+                  ),
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (BuildContext context) {
+                      return SearchMovie();
+                    }));
+                  },
+                ))
           ],
         ),
         body: shouldShowLoading()
             ? loadingIndicator()
-            : SingleChildScrollView(
-                scrollDirection: Axis.vertical,
-                child: Container(
-                  child: Column(
-                    children: <Widget>[
-                      trendingList != null
-                          ? Container(
-                              height: 300,
-                              child: PageView.builder(
-                                physics: BouncingScrollPhysics(),
-                                scrollDirection: Axis.horizontal,
-                                pageSnapping: true,
-                                controller: pageController,
-                                onPageChanged: (currentPage) {},
-                                itemCount: trendingList.length,
-                                itemBuilder: (context, index) {
-                                  return _buildPageViewContent(
-                                      context, trendingList[index]);
-                                },
-                              ),
-                            )
-                          : Container(),
-                      SizedBox(
-                        height: 20,
-                      ),
-                      nowPlaying != null
-                          ? _buildMovieList(
-                              context, nowPlaying, MovieListType.NowPaying)
-                          : Container(),
-                      upcomingList != null
-                          ? _buildMovieList(
-                              context, upcomingList, MovieListType.Upcoming)
-                          : Container(),
-                      popularList != null
-                          ? _buildMovieList(
-                              context, popularList, MovieListType.Popular)
-                          : Container(),
-                      trendingList != null
-                          ? _buildMovieList(
-                              context, trendingList, MovieListType.Trending)
-                          : Container(),
-                      topRatedList != null
-                          ? _buildMovieList(
-                              context, topRatedList, MovieListType.TopRated)
-                          : Container(),
-                    ],
-                  ),
+            : SmartRefresher(
+                controller: _refreshController,
+                enablePullDown: true,
+                header: WaterDropMaterialHeader(
+                  backgroundColor: appTheme.primaryColor,
                 ),
-              ));
+                onRefresh: () {
+                  _refresh();
+                },
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.vertical,
+                  child: Container(
+                    child: Column(
+                      children: <Widget>[
+                        trendingList != null
+                            ? _buildCarouselView()
+                            : Container(),
+                        SizedBox(
+                          height: 20,
+                        ),
+                        nowPlaying != null
+                            ? _buildMovieList(
+                                context, nowPlaying, MovieListType.NowPaying)
+                            : Container(),
+                        upcomingList != null
+                            ? _buildMovieList(
+                                context, upcomingList, MovieListType.Upcoming)
+                            : Container(),
+                        popularList != null
+                            ? _buildMovieList(
+                                context, popularList, MovieListType.Popular)
+                            : Container(),
+                        trendingList != null
+                            ? _buildMovieList(
+                                context, trendingList, MovieListType.Trending)
+                            : Container(),
+                        topRatedList != null
+                            ? _buildMovieList(
+                                context, topRatedList, MovieListType.TopRated)
+                            : Container(),
+                      ],
+                    ),
+                  ),
+                )));
+  }
+
+  Widget _buildCarouselView() {
+    return Container(
+      height: 250,
+      padding: EdgeInsets.all(10),
+      // decoration: BoxDecoration(border: Border.all(width: 1.0), borderRadius: BorderRadius.all(Radius.circular(10))),
+      child: ClipRRect(
+        borderRadius: BorderRadius.all(Radius.circular(8.0)),
+        child: CarouselSlider(
+          scrollDirection: Axis.horizontal,
+          height: 250,
+          viewportFraction: 1.0,
+          initialPage: 0,
+          autoPlayInterval: Duration(seconds: 3),
+          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          pauseAutoPlayOnTouch: Duration(seconds: 2),
+          enlargeCenterPage: true,
+          autoPlay: true,
+          onPageChanged: (index) {
+            // setState(() {
+            //   _currentIndex = index;
+            //   print(_currentIndex);
+            // });
+          },
+          items: pageViewList(trendingList, context),
+          //pageViewList(trendingList, context)
+        ),
+      ),
+    );
   }
 }
 
-
+List<Widget> pageViewList(List<Movie> trendingList, BuildContext context) {
+  var list = trendingList.map((movie) {
+    return _buildPageViewContent(context, movie);
+  }).toList();
+  return list;
+}
 
 Widget _buildPageViewContent(BuildContext context, Movie movie) {
   return Stack(children: <Widget>[
     GestureDetector(
       onTap: () {
-        Navigator.push(context,
-            MaterialPageRoute(builder: (BuildContext context) {
-          return MovieDetailScreen(movie: movie);
-        }));
+        Navigator.push(
+            context, ScaleRoute(page: MovieDetailScreen(movie: movie)));
       },
       child: Container(
-        height: 300,
+        // height: 300,
         child: getNeworkImage(
-            '${kPosterImageBaseUrl}w500/${movie.backdropPath ?? movie.posterPath}'),
+            '${kPosterImageBaseUrl}w500${movie.backdropPath ?? movie.posterPath}'),
       ),
     ),
     Positioned(
@@ -289,7 +361,7 @@ Widget _buildPageViewContent(BuildContext context, Movie movie) {
             gradient: LinearGradient(
                 begin: Alignment.bottomCenter,
                 end: Alignment.topCenter,
-                colors: [Colors.black, Colors.black38.withOpacity(0.1)])),
+                colors: [Colors.black, Colors.black38.withOpacity(0.0)])),
       ),
     ),
     Positioned(
@@ -302,7 +374,7 @@ Widget _buildPageViewContent(BuildContext context, Movie movie) {
         children: <Widget>[
           Flexible(
             child: Text(
-              movie.title,
+              movie.originalTitle,
               style: TextStyle(
                 fontWeight: FontWeight.normal,
                 fontSize: 20.0,
@@ -312,6 +384,13 @@ Widget _buildPageViewContent(BuildContext context, Movie movie) {
               // textAlign: TextAlign.left,
             ),
           ),
+          Container(
+            height: 60,
+            width: 60,
+            decoration:
+                BoxDecoration(color: Colors.black, shape: BoxShape.circle),
+            child: buildChart(movie.voteAverage, Size(60, 60)),
+          )
         ],
       ),
     )
@@ -341,12 +420,12 @@ Widget _buildMovieList(
                   style:
                       TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold)),
               onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (BuildContext context) {
-                  return MovieListScreen(
-                    type: type,
-                  );
-                }));
+                Navigator.push(
+                    context,
+                    SizeRoute(
+                        page: MovieListScreen(
+                      type: type,
+                    )));
               },
             )
           ],
@@ -372,10 +451,12 @@ Widget _buildMovieList(
 Widget buildCard(Movie movie, BuildContext context) {
   return GestureDetector(
     onTap: () {
-      Navigator.push(context,
-          MaterialPageRoute(builder: (BuildContext context) {
-        return MovieDetailScreen(movie: movie);
-      }));
+      Navigator.push(
+          context, ScaleRoute(page: MovieDetailScreen(movie: movie)));
+      // Navigator.push(context,
+      //     MaterialPageRoute(builder: (BuildContext context) {
+      //   return MovieDetailScreen(movie: movie);
+      // }));
     },
     child: Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0, vertical: 0.0),
@@ -386,6 +467,15 @@ Widget buildCard(Movie movie, BuildContext context) {
             borderRadius: BorderRadius.all(Radius.circular(8.0)),
             child: Stack(
               children: <Widget>[
+                // Container(
+                //   height: 210,
+                //   width: 160,
+                //   child: AspectRatio(
+                //     aspectRatio: 160 / 210,
+                //     child: getNeworkImage(
+                //         '${kPosterImageBaseUrl}w185${movie.posterPath}'),
+                //   ),
+                // ),
                 Container(
                   width: 160,
                   height: 210,
@@ -436,7 +526,7 @@ Widget buildCard(Movie movie, BuildContext context) {
           Container(
             width: 160,
             child: Text(
-              movie.title,
+              movie.originalTitle,
               style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,

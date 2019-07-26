@@ -60,8 +60,7 @@ class SearchMovieState extends State<SearchMovie> {
         title: new TextField(
         // controller: _filter,
         decoration: new InputDecoration(
-          // prefixIcon: new Icon(Icons.search),
-          hintText: 'Search...'
+          hintText: 'Search movies'
         ),
         onChanged: (String value){
           setState(() {

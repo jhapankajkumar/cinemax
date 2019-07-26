@@ -1,3 +1,5 @@
+import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/data/image/images.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movie_detail.dart';
@@ -9,8 +11,10 @@ import 'package:cinemax/screens/cast_and_crew/cast_and_crew_screen.dart';
 import 'package:cinemax/screens/movie_detail/movie_detail_description.dart';
 import 'package:cinemax/screens/movie_detail/movie_revies.dart';
 import 'package:cinemax/screens/movie_detail/movie_trailer_list.dart';
+import 'package:cinemax/screens/movie_detail/poster_gallary.dart';
 import 'package:cinemax/screens/movie_detail/similar_movie_list.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
+import 'package:cinemax/util/constant.dart';
 import 'package:cinemax/util/url_constant.dart';
 import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/cupertino.dart';
@@ -60,9 +64,9 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
       videoList = list.results;
     });
   }
-  
+
   _getMovieReview(int movieId, page) async {
-    var data = await MovieServices().getMovieReviews(movieId,page);
+    var data = await MovieServices().getMovieReviews(movieId, page);
     var list = Reviews.fromJson(data);
     setState(() {
       reviews = list.results;
@@ -112,27 +116,42 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     return components;
   }
 
+  _showGallery() {
+    Navigator.push(
+        context,
+        SizeRoute(
+            page: PosterGallery(
+          posters: List.from(detail.images.posters)
+            ..addAll(detail.images.backdrops),
+        )));
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.movie.title),
+        title: Text(
+          widget.movie.title,
+          style: titleStyle,
+        ),
         actions: <Widget>[
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
-                icon: Icon(Icons.cast),
-                iconSize: 30,
-                onPressed: (){
-                  if (widget.movie.id != null) {
-                    Navigator.push(context, MaterialPageRoute(builder: (context){
-                    return CastCrewList(movieId: widget.movie.id,);
+              icon: Icon(Icons.cast),
+              iconSize: 30,
+              onPressed: () {
+                if (widget.movie.id != null) {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return CastCrewList(
+                      movieId: widget.movie.id,
+                    );
                   }));
-                  }
-                  
-                  print('Cast And Crew');
-                },
-              ),
+                }
+
+                print('Cast And Crew');
+              },
+            ),
           ),
         ],
       ),
@@ -141,33 +160,107 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
             ? loadingIndicator()
             : CustomScrollView(
                 slivers: <Widget>[
-                  // SliverPadding(
-                  //   padding: EdgeInsets.only(top: 60),
-
-                  // ),
-                  SliverAppBar(
-                    automaticallyImplyLeading: false,
-                    //title: Text(widget.movie.title),
-
-                    pinned: false,
-                    expandedHeight: 200.0,
-
-                    flexibleSpace: Container(
-                        height: 200,
-                        child: PageView.builder(
-                          // physics: BouncingScrollPhysics(),
-                          scrollDirection: Axis.horizontal,
-                          pageSnapping: true,
-                          controller: pageController,
-                          onPageChanged: (currentPage) {},
-                          itemCount: detail.images.backdrops.length,
-                          itemBuilder: (context, index) {
-                            return _buildPageViewContent(
-                                context, detail.images.backdrops[index]);
-                          },
+                  SliverList(delegate: SliverChildBuilderDelegate(
+                    (BuildContext context, int index) {
+                      /// To convert this infinite list to a list with "n" no of items,
+                      /// uncomment the following line:
+                      if (index > 0) return null;
+                      return GestureDetector(
+                        onTap: () {
+                          _showGallery();
+                        },
+                        child: Container(
+                          child: Stack(
+                            children: <Widget>[
+                              buildPageViewContainer(),
+                              Positioned(
+                                left: 0,
+                                bottom: 0,
+                                height: 80,
+                                width: MediaQuery.of(context).size.width,
+                                child: Container(
+                                  decoration: BoxDecoration(
+                                      gradient: LinearGradient(
+                                          begin: Alignment.bottomCenter,
+                                          end: Alignment.topCenter,
+                                          colors: [
+                                        Colors.black,
+                                        Colors.black38.withOpacity(0.0)
+                                      ])),
+                                ),
+                              ),
+                              Positioned(
+                                left: 15,
+                                bottom:5,
+                                right: 15,
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: <Widget>[
+                                    Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: <Widget>[
+                                       Container(
+                                         width: 270,
+                                         child: Text(
+                                          detail.originalTitle,
+                                          overflow: TextOverflow.ellipsis,
+                                          textAlign:TextAlign.left,
+                                          maxLines: 2,
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.normal,
+                                            fontSize: 20.0,
+                                            color: Colors.white,
+                                            
+                                          ),
+                                      ),
+                                       ),
+                                      SizedBox(height: 10,),
+                                      Row(children: <Widget>[
+                                        
+                                        Text(getDateStrinFromDate(detail.releaseDate),
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 14.0,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      SizedBox(
+                                        width: 20,
+                                      ),
+                                      Text(
+                                        '${detail.runtime.toString()} min',
+                                        style: TextStyle(
+                                          fontWeight: FontWeight.normal,
+                                          fontSize: 14.0,
+                                          color: Colors.white,
+                                        ),
+                                      ),
+                                      ],)
+                                    ],
+                                    
+                                    ),
+                                    
+                                    Container(
+                                      height: 60,
+                                      width: 60,
+                                      decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          shape: BoxShape.circle),
+                                      child: buildChart(
+                                          detail.voteAverage, Size(60, 60)),
+                                    )
+                                  ],
+                                ),
+                              ),
+                              
+                            ],
+                          ),
                         ),
-                      ),
-                  ),
+                      );
+                    },
+                  )),
                   SliverList(delegate: SliverChildBuilderDelegate(
                     (BuildContext context, int index) {
                       /// To convert this infinite list to a list with "n" no of items,
@@ -214,7 +307,6 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
                 Icons.video_library,
                 color: Colors.white,
               )),
-          
         ]),
         Expanded(
           child: TabBarView(
@@ -223,10 +315,11 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
               MovieDetailDiscription(
                 detail: detail,
               ),
-              MovieRevies(reviews: reviews,),
+              MovieRevies(
+                reviews: reviews,
+              ),
               similarMovieListComponents(),
               MovieTrailerList(videoList),
-              
             ],
           ),
         ),
@@ -234,12 +327,51 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     );
   }
 
-  Widget _buildPageViewContent(BuildContext context, Poster image) {
-    String url = '${kPosterImageBaseUrl}w780/${image.filePath}';
-    print(url);
-    return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(10.0)),
-      child: getNeworkImage(url),
+  //Page View Container
+  Widget buildPageViewContainer() {
+    return GestureDetector(
+      child: Container(
+        height: 250,
+        padding: EdgeInsets.all(10),
+        // decoration: BoxDecoration(border: Border.all(width: 1.0), borderRadius: BorderRadius.all(Radius.circular(10))),
+        child: ClipRRect(
+          borderRadius: BorderRadius.all(Radius.circular(8.0)),
+          child: CarouselSlider(
+            scrollDirection: Axis.horizontal,
+            height: 250,
+            viewportFraction: 1.0,
+            initialPage: 0,
+            autoPlayInterval: Duration(seconds: 3),
+            autoPlayAnimationDuration: Duration(milliseconds: 800),
+            pauseAutoPlayOnTouch: Duration(seconds: 2),
+            enlargeCenterPage: true,
+            autoPlay: true,
+            onPageChanged: (index) {
+              // setState(() {
+              //   _currentIndex = index;
+              //   print(_currentIndex);
+              // });
+            },
+            items: pageViewList(detail.images.backdrops, context),
+            //pageViewList(trendingList, context)
+          ),
+        ),
+      ),
     );
   }
 }
+
+List<Widget> pageViewList(List<Poster> posters, BuildContext context) {
+  var list = posters.map((poster) {
+    return buildPageViewContent(context, poster.filePath);
+  }).toList();
+  return list;
+}
+
+Widget buildPageViewContent(BuildContext context, String filePath) {
+  return Container(
+    child: getNeworkImage('${kPosterImageBaseUrl}w780$filePath'),
+  );
+}
+
+

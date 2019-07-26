@@ -4,6 +4,7 @@ import 'package:cinemax/screens/home/home_screen.dart';
 import 'package:cinemax/screens/movie_list/movie_list_by_genre.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/constant.dart';
+import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
@@ -18,6 +19,7 @@ class BaseHomeScreen extends StatefulWidget {
 }
 
 class BaseHomeScreenState extends State<BaseHomeScreen> {
+  Future<Genres> genreListCall;
   List<Genre> genreList;
 
   _genreSelected(int index, BuildContext context) {
@@ -44,25 +46,32 @@ class BaseHomeScreenState extends State<BaseHomeScreen> {
 
   @override
   void initState() {
-    _getGenrelist();
+    _getGenreList();
     super.initState();
   }
 
-  _getGenrelist() async {
-    var data = await MovieServices().getMovieGenreList();
-    Genres list = Genres.fromJson(data);
-    setState(() {
-      genreList = list.genres;
-    });
-  }
+    _getGenreList() async{
+      await MovieServices().fetchMovieGenreList().then((genres){
+          setState(() {
+            genreList = genres.genres;
+          });
+      }).catchError((onError){
+
+      });
+    }
+
 
   @override
   Widget build(BuildContext context) {
     int index = SharedDataManager().menuSelectedIndex;
     return Scaffold(
-        drawer: genreList == null
-            ? Container()
-            : Menu(
+        drawer: genreList == null ?
+               Menu(
+                genres: [],
+                selectionCallback: _genreSelected,
+                selectedIndex: index >= 0 ? index : null,
+               ):
+               Menu(
                 genres: genreList,
                 selectionCallback: _genreSelected,
                 selectedIndex: index >= 0 ? index : null,

@@ -1,3 +1,4 @@
+import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/common_widgets/movie_list_card_cell.dart';
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/movie/movie.dart';
@@ -35,18 +36,23 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
   }
 
   _getMovieList(int genreId,int pageNo) async {
-      var data = await MovieServices().getMovieListByGenre(genreId, pageNo);
-      Movies list = Movies.fromJson(data);
-      setState(() {
+      var data = await MovieServices()
+      .getMovieListByGenre(genreId, pageNo)
+      .then((movies){
+        setState(() {
         currentPage = currentPage + 1;
         if (movieList != null) {
-          List<Movie> newList = List.from(movieList)..addAll(list.results);
+          List<Movie> newList = List.from(movieList)..addAll(movies.results);
           movieList = newList;
         } else {
-          totalPage = list.totalPages;
-          movieList = list.results;
+          totalPage = movies.totalPages;
+          movieList = movies.results;
         }
       });
+      }).catchError((onError){
+
+      });
+      
     }
 
   @override
@@ -71,11 +77,7 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
 
 
   void _cardDidTap(Movie movie, int index, BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-      return MovieDetailScreen(
-        movie: movie,
-      );
-    }));
+    Navigator.push(context, ScaleRoute(page: MovieDetailScreen(movie: movie)));
   }
 
   Widget _getBuidComponent() {
@@ -102,7 +104,7 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
           scrollDirection: Axis.vertical,
           itemCount: rowCount,
           itemBuilder: (context, index) {
-            if (index  == rowCount - 1 &&  currentPage <= totalPage) {  
+            if (index  == rowCount - 1 &&  currentPage < totalPage) {  
               _getMovieList(widget.genre.id,currentPage);
               return loadingIndicator();
             } else {

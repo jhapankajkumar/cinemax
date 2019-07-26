@@ -59,7 +59,7 @@ class CastCrewListState extends State<CastCrewList> {
 Widget buildCastCard(BuildContext context, Cast cast) {
   String character = cast.character;
   character = character.split('\/').first;
-  String imageUrl = '${kPosterImageBaseUrl}w92/${cast.profilePath}';
+  String imageUrl = '${kPosterImageBaseUrl}w500/${cast.profilePath}';
   String name = cast.name;
   return getCard(imageUrl, name, character);
 }
@@ -67,13 +67,14 @@ Widget buildCastCard(BuildContext context, Cast cast) {
 Widget buildCrewCard(BuildContext context, Crew crew) {
   String character = crew.job;
   character = character.split('\/').first;
-  String imageUrl = '${kPosterImageBaseUrl}w92/${crew.profilePath}';
+  String imageUrl = '${kPosterImageBaseUrl}w500/${crew.profilePath}';
   String name = crew.name;
   return getCard(imageUrl, name, character);
 }
 
 Widget getCard(String imageUrl, String name, String character) {
   return Container(
+    height: 150,
     margin: EdgeInsets.all(10),
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     decoration: BoxDecoration(
@@ -83,23 +84,32 @@ Widget getCard(String imageUrl, String name, String character) {
     ),
     child: Row(
       mainAxisAlignment: MainAxisAlignment.start,
+      // crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         CircleAvatar(
+          radius: 50,
             backgroundColor: appTheme.primaryColor,
             backgroundImage: NetworkImage(
               imageUrl,
             )),
         SizedBox(width: 16,),   
         Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            Text(
-              '${name}',
-              style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),
+            Container(
+              
+              width: 200,
+              child: Text(
+                '$name',
+                overflow: TextOverflow.ellipsis,
+                textAlign:TextAlign.left,
+                style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),
+              ),
             ),
             SizedBox(height: 10,),
             Container(
-              width: 270,
+              
+              width: 200,
               child: Text(
                 'Role: $character',
                 overflow: TextOverflow.ellipsis,

@@ -54,7 +54,7 @@ Widget cardWidget(Movie movie, int index, BuildContext context, Function cardDid
               Container(
                 width: cardWidht,
                 height: 250,
-                child: getNeworkImage('${kPosterImageBaseUrl}w500/${movie.posterPath ?? movie.backdropPath}')  
+                child: getNeworkImage('${kPosterImageBaseUrl}w500${movie.posterPath ?? movie.backdropPath}')  
               ),
               Positioned(
                 left: 0,
@@ -97,7 +97,7 @@ Widget cardWidget(Movie movie, int index, BuildContext context, Function cardDid
           Container(
             width: 160,
             child: Text(
-              movie.title,
+              movie.originalTitle,
               style: TextStyle(
                   fontSize: 16.0,
                   fontWeight: FontWeight.bold,

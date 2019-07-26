@@ -9,18 +9,26 @@ class MovieDetailDiscription extends StatelessWidget {
   const MovieDetailDiscription({Key key, this.detail}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          getGenereView(context),
-          SizedBox(
-            height: 20,
-          ),
-          getPlotView(context),
-        ],
+    return SingleChildScrollView(
+          child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 8, vertical: 20),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            
+            getGenereView(context),
+            SizedBox(
+              height: 20,
+            ),
+            getPlotView(context),
+            SizedBox(
+              height: 20,
+            ),
+            getRatingView(context, detail.voteAverage),
+            
+          ],
+        ),
       ),
     );
   }
@@ -55,24 +63,102 @@ class MovieDetailDiscription extends StatelessWidget {
                       print(genre.id);
                       Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
-                        return GenreMovieListScreen(genre: genre, isFromDetail:true);
+                        return GenreMovieListScreen(
+                            genre: genre, isFromDetail: true);
                       }));
                     },
                     child: Container(
                       margin: EdgeInsets.symmetric(horizontal: 5, vertical: 5),
-                      padding: EdgeInsets.symmetric(horizontal: 10, vertical: 5),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 10, vertical: 5),
                       decoration: BoxDecoration(
                           shape: BoxShape.rectangle,
                           borderRadius: BorderRadius.circular(10),
                           color: appTheme.accentColor),
                       child: Text(
                         genre.name,
-                        style: TextStyle(color: Colors.white, fontSize: 16.0, fontWeight: FontWeight.bold),
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 16.0,
+                            fontWeight: FontWeight.bold),
                       ),
                     ),
                   );
                 }).toList(),
               )
+            ],
+          )
+        : Container();
+  }
+
+  Widget getRatingView(BuildContext context, double voteAverage) {
+    return detail.genres != null
+        ? Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Rating :',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    '${detail.voteAverage}/10 ( ${detail.voteCount} votes )',
+                    style: TextStyle(fontSize: 16,),
+                  ),
+                  
+                ],
+              ),
+              SizedBox(
+                    height: 20,
+                  ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Budget :',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    '\$${detail.budget}',
+                    style: TextStyle(fontSize: 16,),
+                  ),
+                  
+                ],
+              ),
+
+              SizedBox(
+                    height: 20,
+                  ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text(
+                    'Revenu :',
+                    style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(
+                    width: 10,
+                  ),
+                  Text(
+                    '\$${detail.revenue}',
+                    style: TextStyle(fontSize: 16,),
+                  ),
+                  
+                ],
+              ),
+
             ],
           )
         : Container();
@@ -103,7 +189,7 @@ class MovieDetailDiscription extends StatelessWidget {
                 style: TextStyle(
                   fontSize: 16,
                 ),
-                maxLines: 10,
+                // maxLines: 10,
               ),
             ],
           )

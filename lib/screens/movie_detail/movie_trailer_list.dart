@@ -1,7 +1,6 @@
 import 'package:cinemax/data/video/video.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_youtube_view/flutter_youtube_view.dart';
-import 'package:youtube_player_flutter/youtube_player_flutter.dart';
+
 
 class MovieTrailerList extends StatefulWidget {
   final List<Video> trailers;
@@ -14,13 +13,9 @@ class MovieTrailerList extends StatefulWidget {
   }
 }
 
-class _MovieTrailerListState extends State<MovieTrailerList>
-    implements YouTubePlayerListener {
-  double _currentVideoSecond = 0.0;
+class _MovieTrailerListState extends State<MovieTrailerList>{
   
-  FlutterYoutubeViewController _controller;
   
-  YoutubePlayerController _playerController;
   @override
   void initState() {
     super.initState();
@@ -49,55 +44,5 @@ class _MovieTrailerListState extends State<MovieTrailerList>
   }
 
   
-  Widget buildPlayer(String videoId) {
-    return Stack(
-      children: <Widget>[
-        Container(
-            height: 300,
-            child: FlutterYoutubeView(
-              scaleMode: YoutubeScaleMode.none,
-              onViewCreated: _onYoutubeCreated,
-              listener: this,
-              params:
-                  YoutubeParam(videoId: videoId, showUI: true, startSeconds: 0),
-            )),
-      ],
-    );
-  }
-
-  void _onYoutubeCreated(FlutterYoutubeViewController controller) {
-    this._controller = controller;
-  }
-
-  void _loadOrCueVideo() {
-    _controller.loadOrCueVideo('gcj2RUWQZ60', _currentVideoSecond);
-  }
-
-  @override
-  void onCurrentSecond(double second) {
-    print('Seconds: $second');
-  }
-
-  @override
-  void onError(String error) {
-    print('ERROR: $error');
-  }
-
-  @override
-  void onReady() {
-    print('ONREADY');
-    // this._controller.pause();
-  }
-
-  @override
-  void onStateChange(String state) {
-    print("onStateChange state = $state");
-    setState(() {
-    });
-  }
-
-  @override
-  void onVideoDuration(double duration) {
-    
-  }
+  
 }

@@ -1,7 +1,6 @@
-
+import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/common_widgets/movie_list_card_cell.dart';
 import 'package:cinemax/data/movie/movie.dart';
-import 'package:cinemax/data/movie/movies.dart';
 import 'package:cinemax/screens/movie_detail/movie_detail_screen.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/constant.dart';
@@ -36,28 +35,24 @@ class MovieListScreenState extends State<MovieListScreen> {
   _getMovieList(int pageNo) async {
     if (widget.type != null) {
       String movieUrl = widget.type.url();
-      var data = await MovieServices().getMovieList(movieUrl, pageNo);
-      Movies list = Movies.fromJson(data);
-      setState(() {
-        currentPage = currentPage + 1;
-        if (movieList != null) {
-          List<Movie> newList = List.from(movieList)..addAll(list.results);
-          movieList = newList; //getSortedListWithType(newList, sortType);
-        } else {
-          totalPage = list.totalPages;
-          movieList =
-              list.results; //getSortedListWithType(list.results, sortType);
-        }
+      await MovieServices().fetchMovieList(movieUrl, pageNo).then((movies) {
+        setState(() {
+          currentPage = currentPage + 1;
+          if (movieList != null) {
+            List<Movie> newList = List.from(movieList)..addAll(movies.results);
+            movieList = newList; 
+          } else {
+            totalPage = movies.totalPages;
+            movieList =
+                movies.results; 
+          }
+        });
+      }).catchError((onError) {
+        
       });
     }
   }
 
-  // _sortBy(SortType type) {
-  //   setState(() {
-  //     sortType = type;
-  //     movieList = getSortedListWithType(movieList, sortType);
-  //   });
-  // }
 
   @override
   Widget build(BuildContext context) {
@@ -72,14 +67,6 @@ class MovieListScreenState extends State<MovieListScreen> {
           style: titleStyle,
         ),
         actions: <Widget>[
-          // IconButton(
-          //   icon: Icon(Icons.sort),
-          //   onPressed: (){
-          //     Navigator.push(context, MaterialPageRoute(builder: (BuildContext contex){
-          //       return Sort(selectedSortType: sortType, callBack: _sortBy);
-          //     }));
-          //   },
-          // )
         ],
       ),
       body: _getBuidComponent(),
@@ -87,11 +74,7 @@ class MovieListScreenState extends State<MovieListScreen> {
   }
 
   void _cardDidTap(Movie movie, int index, BuildContext context) {
-    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) {
-      return MovieDetailScreen(
-        movie: movie,
-      );
-    }));
+    Navigator.push(context, ScaleRoute(page: MovieDetailScreen(movie: movie)));
   }
 
   Widget _getBuidComponent() {
@@ -117,7 +100,7 @@ class MovieListScreenState extends State<MovieListScreen> {
           scrollDirection: Axis.vertical,
           itemCount: rowCount,
           itemBuilder: (context, index) {
-            if (index == rowCount - 1 && currentPage <= totalPage) {
+            if (index == rowCount - 1 && currentPage < totalPage) {
               _getMovieList(currentPage);
               return loadingIndicator();
             } else {

@@ -1,19 +1,48 @@
 import 'package:cinemax/data/genres.dart';
+import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/constant.dart';
 import 'package:flutter/material.dart';
 
-class Menu extends StatelessWidget {
+class Menu extends StatefulWidget {
   final List<Genre> genres;
   final int selectedIndex;
   final Function selectionCallback;
 
   const Menu({Key key, this.genres, this.selectedIndex, this.selectionCallback})
       : super(key: key);
+
+  State<StatefulWidget> createState() {
+    return MenuState();
+  }
+}
+
+class MenuState extends State<Menu> {
+  List<Genre>activeGenres;
+  @override
+  void initState() {
+      if(widget.genres.length == 0) {
+          _getGenreList();
+      }
+      else {
+        activeGenres = widget.genres;
+      }
+    super.initState();
+  }
+
+  _getGenreList() async{
+    await MovieServices().fetchMovieGenreList().then((result){
+      setState(() {
+        activeGenres =  result.genres;
+      });
+    }).catchError((onError){
+
+    });
+
+  }
   @override
   Widget build(BuildContext context) {
     return Drawer(
       elevation: 1,
-
       child: ListView.builder(
         itemBuilder: (BuildContext context, int index) {
           if (index == 0) {
@@ -32,22 +61,23 @@ class Menu extends StatelessWidget {
                   style: TextStyle(fontSize: 18.0, fontWeight: FontWeight.bold),
                 ),
                 onTap: () {
-                  selectionCallback(-1, context);
+                  widget.selectionCallback(-1, context);
                 },
               ),
             );
           }
-          return ExpandableListView(
+          return activeGenres != null ?  ExpandableListView(
             title: "Genre",
-            genres: genres,
-            selectionCallback: selectionCallback,
-            selectedIndex: selectedIndex,
-          );
+            genres: activeGenres,
+            selectionCallback: widget.selectionCallback,
+            selectedIndex: widget.selectedIndex,
+          ):Container();
         },
         itemCount: 2,
       ), //_customeScrollView(context),
     );
   }
+  
 }
 
 class ExpandableListView extends StatefulWidget {

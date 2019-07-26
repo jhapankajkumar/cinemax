@@ -1,11 +1,14 @@
 import 'dart:io' show Platform;
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cinemax/data/movie/movie.dart';
-import 'package:cinemax/data/movie/movies.dart';
 import 'package:cinemax/util/url_constant.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_circular_chart/flutter_circular_chart.dart';
+import 'package:http/http.dart';
+import 'package:intl/intl.dart';
 import 'package:smooth_star_rating/smooth_star_rating.dart';
+
 
 Widget loadingIndicator() {
   Widget indicator;
@@ -55,6 +58,12 @@ class SortType {
       const SortType._internal('Relase Date (Latest)');
   static const ReleaseDateDesc =
       const SortType._internal('Release Date (Oldest)');
+}
+
+class ResultType {
+  final Response response;
+  final FlutterError error;
+  ResultType({this.response,this.error,});
 }
 
 List<SortType> getSortList() {
@@ -122,6 +131,7 @@ List<Movie> getSortedListWithType(List<Movie> list, SortType type) {
 }
 
 Widget getNeworkImage(String imagePath) {
+  // print(imagePath);
   return CachedNetworkImage(
     imageUrl: imagePath,
     imageBuilder: (context, imageProvider) => Container(
@@ -138,4 +148,45 @@ Widget getNeworkImage(String imagePath) {
       fit: BoxFit.cover,
     ),
   );
+}
+
+Widget buildChart(double voteAverage, Size size){
+  int votePercentage = (voteAverage * 10).toInt();
+  return new AnimatedCircularChart(
+    duration: Duration(seconds: 1),
+  size: size,
+  initialChartData: <CircularStackEntry>[
+    new CircularStackEntry(
+      <CircularSegmentEntry>[
+        new CircularSegmentEntry(
+          voteAverage * 10,
+          Colors.lightBlue,
+          rankKey: 'completed',
+        ),
+        new CircularSegmentEntry(
+          (10 -voteAverage) * 10,
+          Colors.grey,
+          rankKey: 'remaining',
+        ),
+      ],
+      rankKey: 'progress',
+    ),
+  ],
+  chartType: CircularChartType.Radial,
+  percentageValues: true,
+  edgeStyle: SegmentEdgeStyle.round,
+  holeLabel: '$votePercentage\u0025',
+  labelStyle: new TextStyle(
+    color: Colors.white,
+    fontWeight: FontWeight.bold,
+    fontSize: 14.0,
+  ),
+  );
+}
+
+String getDateStrinFromDate(DateTime date){
+  // DateTime now = DateTime.now();
+ String formattedDate = DateFormat('MMM dd yyyy').format(date);
+ return formattedDate;
+ 
 }
