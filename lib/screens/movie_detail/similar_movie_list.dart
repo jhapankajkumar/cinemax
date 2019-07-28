@@ -23,6 +23,9 @@ class SimilarMovieList extends StatelessWidget {
     if (relatedMovies == null) {
       return Center( child:Text('No Related movies found', style: titleStyle,));
     }
+    else if (relatedMovies.length == 0) {
+      return Center( child:Text('No Related movies found', style: titleStyle,));
+    }
     int rowCount = relatedMovies.length % 3 == 0 ? relatedMovies.length : relatedMovies.length ~/ 3 + 1;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10),
