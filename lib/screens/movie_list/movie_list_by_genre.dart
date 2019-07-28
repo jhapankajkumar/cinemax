@@ -2,7 +2,6 @@ import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/common_widgets/movie_list_card_cell.dart';
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/movie/movie.dart';
-import 'package:cinemax/data/movie/movies.dart';
 import 'package:cinemax/screens/home/base_home_screen.dart';
 import 'package:cinemax/screens/movie_detail/movie_detail_screen.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
@@ -36,7 +35,7 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
   }
 
   _getMovieList(int genreId,int pageNo) async {
-      var data = await MovieServices()
+      await MovieServices()
       .getMovieListByGenre(genreId, pageNo)
       .then((movies){
         setState(() {
@@ -50,7 +49,9 @@ class GenreMovieListScreenState extends State<GenreMovieListScreen> {
         }
       });
       }).catchError((onError){
-
+        setState(() {
+            movieList = [];
+        });
       });
       
     }

@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/data/genres.dart';
 import 'package:cinemax/data/movie/movie.dart';
-import 'package:cinemax/data/movie/movies.dart';
 import 'package:cinemax/screens/home/base_home_screen.dart';
 import 'package:cinemax/screens/movie_detail/movie_detail_screen.dart';
 import 'package:cinemax/screens/movie_list/movie_list_screen.dart';
@@ -142,7 +141,7 @@ class _HomeScreenState extends State<HomeScreen> {
       return false;
     }
 
-    print('SHOULD LOADING CALLED');
+    
     if (nowPlaying != null ||
         upcomingList != null ||
         popularList != null ||
@@ -257,9 +256,7 @@ class _HomeScreenState extends State<HomeScreen> {
             : SmartRefresher(
                 controller: _refreshController,
                 enablePullDown: true,
-                header: WaterDropMaterialHeader(
-                  backgroundColor: appTheme.primaryColor,
-                ),
+                header: ClassicHeader(),
                 onRefresh: () {
                   _refresh();
                 },

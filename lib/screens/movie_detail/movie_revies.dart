@@ -1,5 +1,6 @@
 
 import 'package:cinemax/data/movie/reviews.dart';
+import 'package:cinemax/util/constant.dart';
 import 'package:flutter/material.dart';
 
 class MovieRevies extends StatelessWidget {
@@ -9,7 +10,7 @@ class MovieRevies extends StatelessWidget {
   const MovieRevies({Key key, this.reviews}) : super(key: key);@override
   Widget build(BuildContext context) {
     
-    return (reviews == null || reviews.length ==0 ) ? Center(child: Text('No Reviews Available'),) :  Container(
+    return (reviews == null  ) ? Center(child: Text('No Reviews Available', style:  titleStyle,),) :  Container(
       padding: EdgeInsets.symmetric(vertical: 10),
       child: ListView.builder(
       itemCount: reviews.length,

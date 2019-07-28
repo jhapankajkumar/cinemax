@@ -19,6 +19,8 @@ class NetworkManager {
         throw new Exception("Error while fetching data");      
       }      
       return _decoder.convert(res);    
+    }).catchError((onError){
+        throw new Exception("Error while fetching data");      
     });
   } 
 

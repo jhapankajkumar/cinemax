@@ -3,10 +3,10 @@ import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/data/image/images.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movie_detail.dart';
-import 'package:cinemax/data/movie/movies.dart';
+
 import 'package:cinemax/data/movie/reviews.dart';
 import 'package:cinemax/data/video/video.dart';
-import 'package:cinemax/data/video/videos.dart';
+
 import 'package:cinemax/screens/cast_and_crew/cast_and_crew_screen.dart';
 import 'package:cinemax/screens/movie_detail/movie_detail_description.dart';
 import 'package:cinemax/screens/movie_detail/movie_revies.dart';
@@ -42,34 +42,31 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
   int currentPage;
 
   _getMovieDetail(int movieId) async {
-    var data = await MovieServices().getMovieDetail(movieId);
-    var movieDetail = MovieDetail.fromJson(data);
+    var data = await MovieServices().fetchMovieDetailWithId(movieId);
     setState(() {
-      detail = movieDetail;
+      detail = data;
     });
   }
 
   _getRelatedMovies(int movieId) async {
-    var data = await MovieServices().getRelatedMovies(movieId, 1);
-    var list = Movies.fromJson(data);
+    var data = await MovieServices().fetchRelatedMovies(movieId, 1);
+    
     setState(() {
-      relatedMovies = list.results;
+      relatedMovies = data.results;
     });
   }
 
   _getVideoList(int movieId) async {
-    var data = await MovieServices().getVideoList(movieId);
-    var list = Videos.fromJson(data);
+    var data = await MovieServices().fetchVideoList(movieId);
     setState(() {
-      videoList = list.results;
+      videoList = data.results;
     });
   }
 
   _getMovieReview(int movieId, page) async {
-    var data = await MovieServices().getMovieReviews(movieId, page);
-    var list = Reviews.fromJson(data);
+    var data = await MovieServices().fetchMovieReviews(movieId, page);
     setState(() {
-      reviews = list.results;
+      reviews = data.results;
     });
   }
 
@@ -79,9 +76,10 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     pageController = PageController();
     if (widget.movie != null) {
       _getMovieDetail(widget.movie.id);
+      _getMovieReview(widget.movie.id, 1);
       _getRelatedMovies(widget.movie.id);
       _getVideoList(widget.movie.id);
-      _getMovieReview(widget.movie.id, 1);
+      
     }
     super.initState();
   }

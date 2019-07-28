@@ -4,7 +4,6 @@ import 'package:cinemax/screens/home/home_screen.dart';
 import 'package:cinemax/screens/movie_list/movie_list_by_genre.dart';
 import 'package:cinemax/services/movie/movie_services.dart';
 import 'package:cinemax/util/constant.dart';
-import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 

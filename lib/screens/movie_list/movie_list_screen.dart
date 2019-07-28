@@ -48,7 +48,10 @@ class MovieListScreenState extends State<MovieListScreen> {
           }
         });
       }).catchError((onError) {
-        
+        setState(() {
+            movieList = [];
+        });
+          
       });
     }
   }

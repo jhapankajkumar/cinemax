@@ -1,6 +1,7 @@
 import 'package:cinemax/common_widgets/movie_list_card_cell.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/screens/movie_detail/movie_detail_screen.dart';
+import 'package:cinemax/util/constant.dart';
 import 'package:flutter/material.dart';
 
 class SimilarMovieList extends StatelessWidget {
@@ -19,6 +20,9 @@ class SimilarMovieList extends StatelessWidget {
   
   @override
   Widget build(BuildContext context) {
+    if (relatedMovies == null) {
+      return Center( child:Text('No Related movies found', style: titleStyle,));
+    }
     int rowCount = relatedMovies.length % 3 == 0 ? relatedMovies.length : relatedMovies.length ~/ 3 + 1;
     return Container(
       padding: EdgeInsets.symmetric(vertical: 10),

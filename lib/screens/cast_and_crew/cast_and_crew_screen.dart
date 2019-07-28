@@ -17,41 +17,59 @@ class CastCrewList extends StatefulWidget {
 
 class CastCrewListState extends State<CastCrewList> {
   Credits credits;
+  Widget baseComponent;
 
   _getCredits(movieId) async {
-    var data = await MovieServices().getCredits(movieId);
-    var list = Credits.fromJson(data);
-    setState(() {
-      credits = list;
+    await MovieServices().fetchCredits(movieId).then((Credits movieCredits) {
+      setState(() {
+        credits = movieCredits;
+        baseComponent = buildBaseComponet();
+      });
+    }).catchError((onError) {
+      print(onError);
+      setState(() {
+        baseComponent = noRecordContainer();
+      });
     });
   }
 
   @override
   void initState() {
     if (widget.movieId != null) {
+      baseComponent = loadingIndicator();
       _getCredits(widget.movieId);
+
+    }
+    else{
+      baseComponent = noRecordContainer();
     }
     super.initState();
   }
 
+  Widget noRecordContainer(){
+    return Center(child: Text('No Record found', style:titleStyle),);
+  }
+  Widget buildBaseComponet(){
+      return Container(
+              child: ListView.builder(
+              itemCount: credits.cast.length + credits.crew.length,
+              itemBuilder: (context, index) {
+                if (index < credits.cast.length) {
+                  return buildCastCard(context, credits.cast[index]);
+                } else {
+                  return buildCrewCard(
+                      context, credits.crew[index - credits.cast.length]);
+                }
+              },
+            ));
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Cast & Crew'),
       ),
-      body: credits != null ? Container(
-          child: ListView.builder(
-        itemCount: credits.cast.length + credits.crew.length,
-        itemBuilder: (context, index) {
-          if (index < credits.cast.length) {
-            return buildCastCard(context, credits.cast[index]);
-          } else {
-            return buildCrewCard(
-                context, credits.crew[index - credits.cast.length]);
-          }
-        },
-      )): loadingIndicator(),
+      body: baseComponent
     );
   }
 }
@@ -87,40 +105,42 @@ Widget getCard(String imageUrl, String name, String character) {
       // crossAxisAlignment: CrossAxisAlignment.center,
       children: <Widget>[
         CircleAvatar(
-          radius: 50,
+            radius: 50,
             backgroundColor: appTheme.primaryColor,
             backgroundImage: NetworkImage(
               imageUrl,
             )),
-        SizedBox(width: 16,),   
+        SizedBox(
+          width: 16,
+        ),
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
-              
               width: 200,
               child: Text(
                 '$name',
                 overflow: TextOverflow.ellipsis,
-                textAlign:TextAlign.left,
-                style: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),
+                textAlign: TextAlign.left,
+                style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(height: 10,),
+            SizedBox(
+              height: 10,
+            ),
             Container(
-              
               width: 200,
               child: Text(
                 'Role: $character',
                 overflow: TextOverflow.ellipsis,
-                textAlign:TextAlign.left,
+                textAlign: TextAlign.left,
                 style: TextStyle(
-                    fontSize: 13.0,
-                    fontWeight: FontWeight.normal,
-                    ),maxLines: 2,
+                  fontSize: 13.0,
+                  fontWeight: FontWeight.normal,
+                ),
+                maxLines: 2,
               ),
             ),
-            
           ],
         )
       ],
