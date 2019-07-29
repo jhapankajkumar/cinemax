@@ -20,7 +20,7 @@ final JsonEncoder _encoder = new JsonEncoder();
   //Fetch method to get movie list
   Future<Movies> fetchMovieList(String url, int pageNo) async {
     String finalUrl = '$url$pageNo';
-    // print(finalUrl);
+    
     return networkManager.get(finalUrl).then((dynamic result){
       if (result['results'] != null ) {
         String body = _encoder.convert(result);
@@ -71,7 +71,7 @@ final JsonEncoder _encoder = new JsonEncoder();
 //Method to fetch the movie detail
   Future<MovieDetail> fetchMovieDetailWithId(int movieId) async {
     String url = getDetailUrl(movieId);
-    // print(url);
+    print(url);
     return networkManager.get(url).then((dynamic result){
       if (result != null ) {
         String body = _encoder.convert(result);

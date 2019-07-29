@@ -19,7 +19,7 @@ Widget loadingIndicator() {
   } else if (Platform.isIOS) {
     indicator = Center(
       child: CupertinoActivityIndicator(
-        radius: 20,
+        radius: 13,
       ),
     );
   }
@@ -76,6 +76,8 @@ List<SortType> getSortList() {
     SortType.ReleaseDateDesc
   ];
 }
+
+enum APIStatus { InProcess, Failed, Success }
 
 Widget buildRating(double voteAverage) {
   return SmoothStarRating(

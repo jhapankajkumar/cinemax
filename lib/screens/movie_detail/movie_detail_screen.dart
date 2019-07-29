@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:cinemax/common_widgets/custom_transition.dart';
 import 'package:cinemax/data/image/images.dart';
+import 'package:cinemax/data/movie/credits.dart';
 import 'package:cinemax/data/movie/movie.dart';
 import 'package:cinemax/data/movie/movie_detail.dart';
 
@@ -20,7 +21,7 @@ import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-enum APIStatus { InProcess, Failed, Success }
+
 
 class MovieDetailScreen extends StatefulWidget {
   final Movie movie;
@@ -40,19 +41,18 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
   TabController _controller;
   List<Movie> relatedMovies;
   List<Review> reviews;
+  Credits credits;
   PageController pageController;
   int currentPage;
   APIStatus status = APIStatus.InProcess;
 
   _getMovieDetail(int movieId) async {
     await MovieServices().fetchMovieDetailWithId(movieId).then((movieDetail) {
-      print('Success');
       setState(() {
         status = APIStatus.Success;
         detail = movieDetail;
       });
     }).catchError((onError) {
-      print('Failure');
       setState(() {
         status = APIStatus.Failed;  
       });
@@ -68,13 +68,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     }).catchError((onError) {});
   }
 
-  _getVideoList(int movieId) async {
-    await MovieServices().fetchVideoList(movieId).then((videos) {
-      setState(() {
-        videoList = videos.results;
-      });
-    }).catchError((onError) {});
-  }
+  
 
   _getMovieReview(int movieId, page) async {
     await MovieServices().fetchMovieReviews(movieId, page).then((movieReviews) {
@@ -85,6 +79,19 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     }).catchError((onError) {});
   }
 
+  _getCredits(movieId) async {
+    await MovieServices().fetchCredits(movieId).then((Credits movieCredits) {
+      setState(() {
+          credits = movieCredits;
+      });
+    }).catchError((onError) {
+      print(onError);
+      setState(() {
+         
+      });
+    });
+  }
+
   @override
   void initState() {
     _controller = TabController(length: 4, vsync: this);
@@ -93,7 +100,8 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
       _getMovieDetail(widget.movie.id);
       _getMovieReview(widget.movie.id, 1);
       _getRelatedMovies(widget.movie.id);
-      _getVideoList(widget.movie.id);
+      _getCredits(widget.movie.id);
+      
     }
     super.initState();
   }
@@ -114,19 +122,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
     return similarComponent;
   }
 
-  Widget getMoviesTrailerWidget() {
-    Widget components;
-    if (relatedMovies == null || detail == null) {
-      components = loadingIndicator();
-    } else if (videoList != null && videoList.length == 0) {
-      components = Center(
-        child: Text("No Videos available"),
-      );
-    } else {
-      components = MovieTrailerList(videoList);
-    }
-    return components;
-  }
+  
 
   _showGallery() {
     Navigator.push(
@@ -150,18 +146,16 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
           Padding(
             padding: const EdgeInsets.only(right: 8),
             child: IconButton(
-              icon: Icon(Icons.cast),
+              icon: Icon(Icons.videocam),
               iconSize: 30,
               onPressed: () {
                 if (widget.movie.id != null) {
                   Navigator.push(context, MaterialPageRoute(builder: (context) {
-                    return CastCrewList(
-                      movieId: widget.movie.id,
+                    return YoutubeDefaultWidget(
+                      widget.movie.id,
                     );
                   }));
                 }
-
-                print('Cast And Crew');
               },
             ),
           ),
@@ -287,7 +281,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
                           /// uncomment the following line:
                           if (index > 0) return null;
                           return Container(
-                            height: MediaQuery.of(context).size.height - 250,
+                            height: MediaQuery.of(context).size.height - 300,
                             child: tabBar(),
                           );
                         },
@@ -322,9 +316,9 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
                 color: Colors.white,
               )),
           Tab(
-              text: "Videos",
+              text: "Casts",
               icon: Icon(
-                Icons.video_library,
+                Icons.cast,
                 color: Colors.white,
               )),
         ]),
@@ -341,7 +335,7 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
               SimilarMovieList(
                 relatedMovies: relatedMovies,
               ),
-              MovieTrailerList(videoList),
+              CastCrewList(credits),
             ],
           ),
         ),
@@ -351,6 +345,18 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
 
   //Page View Container
   Widget buildPageViewContainer() {
+    List<Poster> posters;
+    if(detail.images.backdrops.length > 0){
+      posters = detail.images.backdrops;
+    }
+    else if (detail.images.posters.length > 0) {
+      posters = detail.images.posters;
+    }
+    else {
+      return Container(
+        height: 250,
+      );
+    }
     return GestureDetector(
       child: Container(
         height: 250,
@@ -367,14 +373,14 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
             autoPlayAnimationDuration: Duration(milliseconds: 800),
             pauseAutoPlayOnTouch: Duration(seconds: 2),
             enlargeCenterPage: true,
-            autoPlay: true,
+            autoPlay: posters.length == 1 ? false : true,
             onPageChanged: (index) {
               // setState(() {
               //   _currentIndex = index;
               //   print(_currentIndex);
               // });
             },
-            items: pageViewList(detail.images.backdrops, context),
+            items: pageViewList(posters, context),
             //pageViewList(trendingList, context)
           ),
         ),
@@ -384,10 +390,15 @@ class MovieDetailScreenState extends State<MovieDetailScreen>
 }
 
 List<Widget> pageViewList(List<Poster> posters, BuildContext context) {
-  var list = posters.map((poster) {
+  if (posters.length > 0){
+     var list = posters.map((poster) {
     return buildPageViewContent(context, poster.filePath);
   }).toList();
   return list;
+  }
+  else {
+    return [];
+  }
 }
 
 Widget buildPageViewContent(BuildContext context, String filePath) {

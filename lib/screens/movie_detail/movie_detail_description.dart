@@ -59,8 +59,6 @@ class MovieDetailDiscription extends StatelessWidget {
                 children: detail.genres.map((genre) {
                   return GestureDetector(
                     onTap: () {
-                      print(genre.name);
-                      print(genre.id);
                       Navigator.push(context,
                           MaterialPageRoute(builder: (BuildContext context) {
                         return GenreMovieListScreen(

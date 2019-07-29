@@ -1,5 +1,8 @@
 PODS:
   - Flutter (1.0.0)
+  - flutter_youtube_view (1.1.4):
+    - Flutter
+    - YoutubeKit
   - FMDB (2.7.5):
     - FMDB/standard (= 2.7.5)
   - FMDB/standard (2.7.5)
@@ -8,19 +11,24 @@ PODS:
   - sqflite (0.0.1):
     - Flutter
     - FMDB (~> 2.7.2)
+  - YoutubeKit (0.3.0)
 
 DEPENDENCIES:
   - Flutter (from `.symlinks/flutter/ios`)
+  - flutter_youtube_view (from `.symlinks/plugins/flutter_youtube_view/ios`)
   - path_provider (from `.symlinks/plugins/path_provider/ios`)
   - sqflite (from `.symlinks/plugins/sqflite/ios`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - FMDB
+    - YoutubeKit
 
 EXTERNAL SOURCES:
   Flutter:
     :path: ".symlinks/flutter/ios"
+  flutter_youtube_view:
+    :path: ".symlinks/plugins/flutter_youtube_view/ios"
   path_provider:
     :path: ".symlinks/plugins/path_provider/ios"
   sqflite:
@@ -28,9 +36,11 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: 58dd7d1b27887414a370fcccb9e645c08ffd7a6a
+  flutter_youtube_view: f9937ac435a82a758189c78c7a8828ec56fb0def
   FMDB: 2ce00b547f966261cd18927a3ddb07cb6f3db82a
   path_provider: f96fff6166a8867510d2c25fdcc346327cc4b259
   sqflite: ff1d9da63c06588cc8d1faf7256d741f16989d5a
+  YoutubeKit: a00e9eebcb3cfe26d7e233c5f8591dfd0b08f7a0
 
 PODFILE CHECKSUM: b6a0a141693093b304368d08511b46cf3d1d0ac5
 

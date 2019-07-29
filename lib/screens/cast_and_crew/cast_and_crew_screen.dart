@@ -6,9 +6,10 @@ import 'package:cinemax/util/utility_helper.dart';
 import 'package:flutter/material.dart';
 
 class CastCrewList extends StatefulWidget {
-  final int movieId;
+  final  Credits credits;
 
-  const CastCrewList({Key key, this.movieId}) : super(key: key);
+  const CastCrewList(this.credits);
+
   @override
   State<StatefulWidget> createState() {
     return CastCrewListState();
@@ -16,32 +17,19 @@ class CastCrewList extends StatefulWidget {
 }
 
 class CastCrewListState extends State<CastCrewList> {
-  Credits credits;
+  
   Widget baseComponent;
 
-  _getCredits(movieId) async {
-    await MovieServices().fetchCredits(movieId).then((Credits movieCredits) {
-      setState(() {
-        credits = movieCredits;
-        baseComponent = buildBaseComponet();
-      });
-    }).catchError((onError) {
-      print(onError);
-      setState(() {
-        baseComponent = noRecordContainer();
-      });
-    });
-  }
+  
 
   @override
   void initState() {
-    if (widget.movieId != null) {
-      baseComponent = loadingIndicator();
-      _getCredits(widget.movieId);
-
-    }
-    else{
+    if (widget.credits == null) {
       baseComponent = noRecordContainer();
+      // _getCredits(widget.movieId);
+    }
+    else {
+      baseComponent = buildBaseComponet();
     }
     super.initState();
   }
@@ -52,13 +40,13 @@ class CastCrewListState extends State<CastCrewList> {
   Widget buildBaseComponet(){
       return Container(
               child: ListView.builder(
-              itemCount: credits.cast.length + credits.crew.length,
+              itemCount: widget.credits.cast.length + widget.credits.crew.length,
               itemBuilder: (context, index) {
-                if (index < credits.cast.length) {
-                  return buildCastCard(context, credits.cast[index]);
+                if (index < widget.credits.cast.length) {
+                  return buildCastCard(context, widget.credits.cast[index]);
                 } else {
                   return buildCrewCard(
-                      context, credits.crew[index - credits.cast.length]);
+                      context, widget.credits.crew[index - widget.credits.cast.length]);
                 }
               },
             ));
@@ -66,9 +54,7 @@ class CastCrewListState extends State<CastCrewList> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Cast & Crew'),
-      ),
+      
       body: baseComponent
     );
   }
@@ -92,7 +78,7 @@ Widget buildCrewCard(BuildContext context, Crew crew) {
 
 Widget getCard(String imageUrl, String name, String character) {
   return Container(
-    height: 150,
+    height: 120,
     margin: EdgeInsets.all(10),
     padding: EdgeInsets.symmetric(horizontal: 10, vertical: 10),
     decoration: BoxDecoration(

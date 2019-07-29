@@ -1,8 +1,10 @@
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FMDB" "${PODS_CONFIGURATION_BUILD_DIR}/path_provider" "${PODS_CONFIGURATION_BUILD_DIR}/sqflite" "${PODS_ROOT}/../.symlinks/flutter/ios"
+ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FMDB" "${PODS_CONFIGURATION_BUILD_DIR}/YoutubeKit" "${PODS_CONFIGURATION_BUILD_DIR}/flutter_youtube_view" "${PODS_CONFIGURATION_BUILD_DIR}/path_provider" "${PODS_CONFIGURATION_BUILD_DIR}/sqflite" "${PODS_ROOT}/../.symlinks/flutter/ios"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/FMDB/FMDB.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/YoutubeKit/YoutubeKit.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/flutter_youtube_view/flutter_youtube_view.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/path_provider/path_provider.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/sqflite/sqflite.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -l"sqlite3" -framework "FMDB" -framework "Flutter" -framework "path_provider" -framework "sqflite"
+OTHER_LDFLAGS = $(inherited) -l"sqlite3" -framework "FMDB" -framework "Flutter" -framework "YoutubeKit" -framework "flutter_youtube_view" -framework "path_provider" -framework "sqflite"
+OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
 PODS_PODFILE_DIR_PATH = ${SRCROOT}/.
