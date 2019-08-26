@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>517279841530-6pkj6oebfuh6ha9pg9f32dud30mkup2d.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.517279841530-6pkj6oebfuh6ha9pg9f32dud30mkup2d</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCXm4RrGbfosNyQTO6-nM_CiciELacw_Ow</string>
+	<key>GCM_SENDER_ID</key>
+	<string>517279841530</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.pankaj.cinemax</string>
+	<key>PROJECT_ID</key>
+	<string>cinemax-68633</string>
+	<key>STORAGE_BUCKET</key>
+	<string>cinemax-68633.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:517279841530:ios:a3464fcd7ff6a23c</string>
+	<key>DATABASE_URL</key>
+	<string>https://cinemax-68633.firebaseio.com</string>
+	<key>ADMOB_APP_ID</key>
+	<string>ca-app-pub-1533297478141533~3741978939</string>
+</dict>
+</plist>
