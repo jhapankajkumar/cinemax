@@ -1,16 +1,25 @@
 # cinemax
 
-A new Flutter project.
+A Flutter project to browse the movie 
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+This project is flutter application to showcase the learning of Flutter language
 
-A few resources to get you started if this is your first Flutter project:
+Cinemax used the TMDB api and has the following feature
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+1.  Browse movie based on top rating, latest, uplcoming
+2.  Search movie
+3.  List movies by Genre
+4.  Play trailer
+5.  See movie reviews
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+Below are the screen shots
+
+![alt Home Page](https://github.com/jhapankajkumar/cinemax/blob/master/screenshots/home.png)
+![alt Kebab Menu ](https://github.com/jhapankajkumar/cinemax/blob/master/screenshots/menu.png)
+![alt Detail Page ](https://github.com/jhapankajkumar/cinemax/blob/master/screenshots/detail.png)
+![alt Related Page](https://github.com/jhapankajkumar/cinemax/blob/master/screenshots/detail_related.png)
+![alt Search ](https://github.com/jhapankajkumar/cinemax/blob/master/screenshots/search.png)
+![alt Upcoming ](https://github.com/jhapankajkumar/cinemax/blob/master/screenshots/upcoming.png)
