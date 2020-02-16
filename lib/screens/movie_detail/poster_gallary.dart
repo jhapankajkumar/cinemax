@@ -34,7 +34,7 @@ class PosterGallery extends StatelessWidget {
               aspectRatio: 9/16,
               viewportFraction: 1.0,
               initialPage: 0,
-              autoPlayInterval: Duration(seconds: 2),
+              autoPlayInterval: Duration(seconds: 5),
               autoPlayAnimationDuration: Duration(milliseconds: 800),
               pauseAutoPlayOnTouch: Duration(seconds: 2),
               enlargeCenterPage: true,
