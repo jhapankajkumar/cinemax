@@ -1,6 +1,9 @@
 # cinemax
 
-A Flutter project to browse the movie 
+A Flutter project to browse the movie, The working application is uploaded on app store.
+
+App Link: https://apps.apple.com/sg/app/cinemax/id1474832382
+
 
 ## Getting Started
 
